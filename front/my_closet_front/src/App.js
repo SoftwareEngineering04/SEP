@@ -10,7 +10,7 @@ function App() {
         <Route path='/' element={<BeforeLogin />} />
       </Routes>
     </Router>
-  )
-}
+  )}
+
 
 export default App;
