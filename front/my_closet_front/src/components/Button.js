@@ -1,11 +1,9 @@
-import React from "react";
-
 const Button = (props) => {
   return (
     <button
       style={{
-        backgroundColor: props.color,
-        color: "white",
+        backgroundColor: props.backgroundColor,
+        color: props.color,
         border: 0,
         borderRadius: "7px",
         cursor: "pointer",

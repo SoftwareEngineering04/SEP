@@ -1,18 +1,16 @@
-import Button from './Button';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import BeforeLogin from './pages/BeforeLogin';
+import Login from './pages/Login';
 
 function App() {
   return (
-    <div>
-      <h1 style={{
-        border : "lighter",
-        color : "darkblue"
-      }}>My Closet</h1>
-      <Button 
-      value={"들어가기"} 
-      fontSize={"20px"}
-      color={"rgba(52, 152, 219, 0.28)"}/>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path='/login' element={<Login />} />
+        <Route path='/' element={<BeforeLogin />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App;
