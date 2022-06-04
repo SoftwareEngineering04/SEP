@@ -4,6 +4,7 @@ const Input = (props) => {
       type={props.type}
       placeholder={props.placeholder}
       disabled={props.disabled}
+      value={props.value}
       style={{
         backgroundColor : "white",
         color : "gray",
@@ -11,7 +12,8 @@ const Input = (props) => {
         borderRadius : "3px",
         fontSize : props.fontSize,
         width : props.width,
-        height : props.height
+        height : props.height,
+        display : props.display
       }} />
   );
 }
