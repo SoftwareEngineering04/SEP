@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import Input from "../components/Input";
 import BottomMenu from "../components/BottomMenu";
+import Weather from "../components/Weather";
 import {useState} from 'react'
 
 const Main = () => {
@@ -10,16 +11,16 @@ const Main = () => {
   return (
     <>
       <Header />
-      <p>Weather & temp</p>
+      <Weather />
       <Button width={'200px'} value={'종류별'} />
       <Button width={'200px'} value={'계절별'} />
       <label htmlFor="category">종류별</label>
       <Input type={'text'}
-      value={category} />
+      defaultValue={category} />
       <label htmlFor="season">계절별</label>
       <Input type={'text'}
-      value={season} />
-      <Button value={'찾기'} />
+      defaultValue={season} />
+      <Button value={'검색'} />
       <BottomMenu />
     </>
   );
