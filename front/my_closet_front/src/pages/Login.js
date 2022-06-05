@@ -18,29 +18,24 @@ const Login = () => {
     <Link to='/findid'>
     <Button backgroundColor={"transparent"} 
     color={"rgba(41,90,221,0.35)"}
-    value={"아이디찾기"} />
-    </Link>
+    value={"아이디찾기"} /></Link>
     <Link to='/findpw'>
     <Button backgroundColor={"transparent"} 
     color={"rgba(41,90,221,0.35)"}
-    value={"비밀번호찾기"} />
-    </Link>
+    value={"비밀번호찾기"} /></Link>
 
     <Link to='/main'>
     <Button backgroundColor={"rgba(224,224,224,0.29)"}
     value={"로그인하기"} 
-    width={"200px"} height={"30px"}/>
-    </Link>
+    width={"200px"} height={"30px"}/></Link>
     <Link to='/'>
     <Button backgroundColor={"rgba(224,224,224,0.29)"}
     value={"뒤로가기"} 
-    width={"100px"} height={"30px"} />
-    </Link>
+    width={"100px"} height={"30px"} /></Link>
     <Link to='/join'>
     <Button backgroundColor={"rgba(224,224,224,0.29)"}
     value={"회원가입"} 
-    width={"100px"} height={"30px"}/>
-    </Link>
+    width={"100px"} height={"30px"}/></Link>
     </>
   );
 }

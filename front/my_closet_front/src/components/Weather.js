@@ -31,11 +31,11 @@ function Weather()  {
     getCoords();
   })
   return(
-    <>
-      <div>weather : {weather}</div>
-      <div>temp : {temp}</div>
+    <div>
       <img alt={'아이콘'} src={`http://openweathermap.org/img/wn/${icon}.png`} />
-    </>
+      <div>temp : {temp}'C</div>
+      <div>weather : {weather}</div>
+    </div>
   );
 }
 

@@ -4,6 +4,7 @@ import Input from "../components/Input";
 import BottomMenu from "../components/BottomMenu";
 import Weather from "../components/Weather";
 import {useState} from 'react'
+import { Link } from "react-router-dom";
 
 const Main = () => {
   const [category, setCategory] = useState([]);
@@ -20,7 +21,8 @@ const Main = () => {
       <label htmlFor="season">계절별</label>
       <Input type={'text'}
       defaultValue={season} />
-      <Button value={'검색'} />
+      <Link to='/clothlist'>
+      <Button value={'검색'} /></Link>
       <BottomMenu />
     </>
   );

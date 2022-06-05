@@ -17,12 +17,11 @@ const FindID = () => {
     <Input type={'text'}
     placeholder={'abcde12345'}
     disabled={true} />
+
     <Link to='/login'>
-    <Button value={'로그인하기'} />
-    </Link>
+    <Button value={'로그인하기'} /></Link>
     <Link to='/'>
-    <Button value={'취소'} />
-    </Link>
+    <Button value={'취소'} /></Link>
     </>
   )
 }

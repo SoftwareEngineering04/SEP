@@ -24,10 +24,11 @@ const Join = () => {
     placeholder={'이메일'}
     height={'20px'} />
     <p>회원정보를 등록하시겠습니까?</p>
-    <Button width={'80px'} height={'30px'} value={'예'} />
+
     <Link to='/login'>
-    <Button width={'80px'} height={'30px'} value={'아니오'} />
-    </Link>
+    <Button width={'80px'} height={'30px'} value={'예'} /></Link>
+    <Link to='/login'>
+    <Button width={'80px'} height={'30px'} value={'아니오'} /></Link>
     </>
   );
 }

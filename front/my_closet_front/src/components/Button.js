@@ -1,6 +1,8 @@
 const Button = (props) => {
   return (
     <button
+    onClick={props.onClick}
+    name={props.name}
       style={{
         backgroundColor: props.backgroundColor,
         color: props.color,

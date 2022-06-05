@@ -16,12 +16,11 @@ const FindPW = () => {
     <Button value={'찾기'} />
     <p>조회된 비밀번호는 다음과 같습니다.</p>
     <p><b>hong123***</b></p>
+
     <Link to='/login'>
-    <Button value={'로그인하기'} />
-    </Link>
+    <Button value={'로그인하기'} /></Link>
     <Link to='/'>
-    <Button value={'취소'} />
-    </Link>
+    <Button value={'취소'} /></Link>
     </>
   );
 }
