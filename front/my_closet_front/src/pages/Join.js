@@ -7,10 +7,11 @@ const Join = () => {
   return (
     <>
     <Header />
+    <div>
     <label>회원정보를 입력하세요</label>
     <Input type={'text'}
     placeholder={'이름'}
-    height={'20px'} />
+    height={'20px'} style={{display : 'block', margin : '0 auto'}}/>
     <Input type={'text'}
     placeholder={'아이디'}
     height={'20px'} />
@@ -23,8 +24,9 @@ const Join = () => {
     <Input type={'email'}
     placeholder={'이메일'}
     height={'20px'} />
-    <p>회원정보를 등록하시겠습니까?</p>
+    </div>
 
+    <p>회원정보를 등록하시겠습니까?</p>
     <Link to='/login'>
     <Button width={'80px'} height={'30px'} value={'예'} /></Link>
     <Link to='/login'>

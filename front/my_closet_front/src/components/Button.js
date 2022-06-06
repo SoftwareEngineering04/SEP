@@ -12,6 +12,9 @@ const Button = (props) => {
         fontSize: props.fontSize,
         width: props.width,
         height: props.height,
+        margin : props.margin,
+        display : props.display,
+        textDecoration : props.textDecoration,
       }}
     >
       {props.value}
