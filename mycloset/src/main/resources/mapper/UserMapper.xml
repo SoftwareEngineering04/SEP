@@ -5,4 +5,10 @@
     <select id="getAllUser" resultType="User">
         SELECT * FROM user;
     </select>
+
+    <insert id="addUser" parameterType="subways.mycloset.dto.User">
+        INSERT INTO user
+            (id, password, name, email)
+        VALUES(#{id},#{password},#{name},#{email});
+    </insert>
 </mapper>

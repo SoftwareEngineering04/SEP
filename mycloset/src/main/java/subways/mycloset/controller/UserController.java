@@ -15,6 +15,9 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
+    @GetMapping("/user-adduser")
+    public int addUser(User user){ return userService.addUser(user); }
+
     @GetMapping("/user")
     public List<User> testController() {
         return userService.getAllUser();
