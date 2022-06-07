@@ -13,6 +13,11 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
 
+    public int addUser(User user){
+        userDao.addUser(user);
+
+        return 0;
+    }
     public List<User> getAllUser() {
         List<User> users = userDao.getAllUser();
         return users;
