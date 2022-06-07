@@ -5,7 +5,9 @@ const Favorite = () => {
   return (
     <>
     <Header />
+    <div style={{textAlign:'center'}}>
     <p>즐겨찾기 목록 출력해야함...</p>
+    </div>
     <BottomMenu />
     </>
   );

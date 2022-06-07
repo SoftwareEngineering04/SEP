@@ -15,8 +15,9 @@ const Input = forwardRef((props, ref) => {
       borderRadius : "3px",
       fontSize : props.fontSize,
       width : props.width,
-      height : props.height,
-      display : props.display
+      height : props.height? props.height : '20px',
+      display : props.display,
+      margin : props.margin
   }} />
   );
 })

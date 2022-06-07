@@ -6,15 +6,15 @@ const Button = (props) => {
       style={{
         backgroundColor: props.backgroundColor,
         color: props.color,
-        border: 0,
+        border: props.border? props.borer : 'none',
         borderRadius: "7px",
         cursor: "pointer",
         fontSize: props.fontSize,
         width: props.width,
-        height: props.height,
+        height: props.height? props.height : '20px',
         margin : props.margin,
         display : props.display,
-        textDecoration : props.textDecoration,
+        textDecoration : props.textDecoration? props.textDecoration:'none',
       }}
     >
       {props.value}

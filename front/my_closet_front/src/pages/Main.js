@@ -13,16 +13,24 @@ const Main = () => {
     <>
       <Header />
       <Weather />
-      <Button width={'200px'} value={'종류별'} />
-      <Button width={'200px'} value={'계절별'} />
-      <label htmlFor="category">종류별</label>
+      <Button width={'200px'} value={'종류별'} 
+      display={'block'} margin={'10px auto'}/>
+      <Button width={'200px'} value={'계절별'}
+      display={'block'} margin={'10px auto'} />
+      <div style={{
+        textAlign:'center'
+      }}>
+        <div style={{display:'block', margin:'10px auto'}}>
+      <label htmlFor="category">종류별 </label>
       <Input type={'text'}
-      defaultValue={category} />
-      <label htmlFor="season">계절별</label>
+      defaultValue={category} /></div>
+        <div style={{display:'block', margin:'10px auto'}}>
+      <label htmlFor="season">계절별 </label>
       <Input type={'text'}
-      defaultValue={season} />
+      defaultValue={season} /></div>
       <Link to='/clothlist'>
-      <Button value={'검색'} /></Link>
+      <Button value={'검색'} width={'100px'} height={'25px'}/></Link>
+      </div>
       <BottomMenu />
     </>
   );

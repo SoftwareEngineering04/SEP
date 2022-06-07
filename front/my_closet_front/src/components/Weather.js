@@ -29,12 +29,19 @@ function Weather()  {
   }
   useEffect(() => {
     getCoords();
-  })
+  },)
   return(
-    <div>
-      <img alt={'아이콘'} src={`http://openweathermap.org/img/wn/${icon}.png`} />
-      <div>temp : {temp}'C</div>
-      <div>weather : {weather}</div>
+    <div style={{display:'block',
+     margin:'0px, auto',
+      textAlign:'center',
+      marginBottom:'20px'}}>
+      <img alt={'아이콘'} src={`http://openweathermap.org/img/wn/${icon}.png`} 
+      style={{
+        width:'100px',
+        height:'100px'
+      }}/>
+      <p style={{display:'inline'}}><b>temp : {temp}˚C</b></p>
+      <p style={{display:'inline'}}>   <b>weather : {weather}</b></p>
     </div>
   );
 }

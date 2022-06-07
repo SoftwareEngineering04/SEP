@@ -37,16 +37,17 @@ const Login = () => {
     <Link to='/findid'>
     <Button backgroundColor={"transparent"} 
     color={"rgba(41,90,221,0.35)"}
-    value={"아이디찾기"} /></Link>
+    value={"아이디찾기"}  margin={'10px auto'}/></Link>
     <Link to='/findpw'>
     <Button backgroundColor={"transparent"} 
     color={"rgba(41,90,221,0.35)"}
     value={"비밀번호찾기"} /></Link>
     </div>
+    <div></div> {/*아이디, 비밀번호 잘못입력시 문구 출력 해야함*/}
 
     <Link to='/main' style={{textDecoration : 'none'}}>
     <Button backgroundColor={"rgba(224,224,224,0.29)"}
-    value={"로그인하기"} display={'block'} margin={'0px auto'}
+    value={"로그인하기"} display={'block'} margin={'20px auto'}
     width={"200px"} height={"30px"}
     onClick={loginAlert}/></Link>
     <div style={{margin:'5px'}}>
