@@ -6,9 +6,28 @@
         SELECT * FROM user;
     </select>
 
+    <select id="getUserInfoByEmail" parameterType="String" resultType="User">
+        SELECT * FROM user where email=#{email};
+    </select>
+
+    <select id="getUserInfoById" parameterType="String" resultType="User">
+        SELECT * FROM user where id=#{id};
+    </select>
+
     <insert id="addUser" parameterType="subways.mycloset.dto.User">
         INSERT INTO user
             (id, password, name, email)
         VALUES(#{id},#{password},#{name},#{email});
     </insert>
+
+    <update id="updateUserInfo" parameterType="subways.mycloset.dto.User">
+        UPDATE user SET id=#{id}, password=#{password}, name=#{name}, email=#{email}
+        where id=#{id};
+    </update>
+
+    <delete id="deleteUser" parameterType="String">
+        DELETE FROM user where id=#{id};
+    </delete>
+
+
 </mapper>

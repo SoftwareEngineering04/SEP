@@ -23,15 +23,43 @@ public class ClothesServiceImpl implements ClothesService {
         return 0;
     }
 
-    public Clothes getClothesBycId(int cId){
+    public int deleteClothese(int cId){
 
+        clothesDao.delete(cId);
+
+        return 0;
+    }
+
+    public int updateClothes(Clothes clothes){
+        clothesDao.updateClothes(clothes);
+        return 0;
+    }
+
+    public Clothes getClothesBycId(int cId){
         Clothes clothes = clothesDao.getClothesBycId(cId);
+        return clothes;
+    }
+
+    public List<Clothes> getClothesByName(String name, String id){
+        List<Clothes> clothes = clothesDao.getClothesByName(name, id);
 
         return clothes;
     }
 
-    public List<Clothes> getAllClothes() {
-        List<Clothes> clothes = clothesDao.getAllClothes();
+    public List<Clothes> getClothesByCategory(String category, String subcategory, String id){
+        List<Clothes> clothes = clothesDao.getClothesByCategory(category, subcategory, id);
+
+        return clothes;
+    }
+
+    public List<Clothes> getFavorites(String id){
+        List<Clothes> clothes = clothesDao.getFavorites(id);
+
+        return clothes;
+    }
+
+    public List<Clothes> getAllClothes(String id) {
+        List<Clothes> clothes = clothesDao.getAllClothes(id);
         return clothes;
     }
 }

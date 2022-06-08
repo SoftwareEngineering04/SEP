@@ -8,15 +8,32 @@
         VALUES(#{cId},#{name},#{category}, #{subcategory}, #{filter},#{photo}, #{isFavorite}, #{id})
     </insert>
 
+    <delete id="delete" parameterType="Integer">
+        DELETE FROM clothes where cId=#{cId};
+    </delete>
+
+    <update id="updateClothes" parameterType="subways.mycloset.dto.Clothes">
+        UPDATE Clothes SET cId=#{cId}, name=#{name}, category=#{category}, subcategory=#{subcategory}, filter=#{filter}, photo=#{photo}, isFavorite=#{isFavorite}
+        where cId=#{cId};
+    </update>
+
     <select id="getClothesBycId" parameterType="Integer" resultType="Clothes">
         SELECT * FROM clothes where cId=#{cId};
     </select>
 
-    <select id="getAllClothes" resultType="Clothes">
-        SELECT * FROM clothes;
+    <select id="getClothesByName" parameterType="String" resultType="Clothes">
+        SELECT * FROM clothes where name like CONCAT('%', #{name}, '%') AND id=#{id};
     </select>
 
-    <select id="">
-        
+    <select id="getClothesByCategory" parameterType="String" resultType="Clothes">
+        SELECT * FROM clothes where category=#{category} AND subcategory=#{subcategory} AND id=#{id};
+    </select>
+
+    <select id="getFavorites" parameterType="String" resultType="Clothes">
+        SELECT * FROM clothes where isFavorite=true AND id=#{id};
+    </select>
+
+    <select id="getAllClothes" parameterType="String" resultType="Clothes">
+        SELECT * FROM clothes where id=#{id};
     </select>
 </mapper>

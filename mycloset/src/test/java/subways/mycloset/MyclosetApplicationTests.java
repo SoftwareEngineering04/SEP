@@ -4,11 +4,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.mock.web.MockHttpSession;
 import subways.mycloset.dto.Clothes;
 import subways.mycloset.dto.Filter;
 import subways.mycloset.dto.User;
 import subways.mycloset.service.ClothesService;
 import subways.mycloset.service.UserService;
+
+import java.util.List;
 
 @SpringBootTest
 class MyclosetApplicationTests {
@@ -17,6 +20,11 @@ class MyclosetApplicationTests {
 	UserService userService;
 	@Autowired
 	ClothesService clothesService;
+
+	@Test
+	public void login(){
+		MockHttpSession session = new MockHttpSession();
+	}
 	@DisplayName("회원가입")
 	@Test
 	public void register(){
@@ -47,11 +55,35 @@ class MyclosetApplicationTests {
 	}
 
 	@Test
+	public void finduser(){
+		User user = userService.getUserInfoById("lweyine");
+		System.out.println(user);
+	}
+
+	@Test
+	public void deleteClothes(){
+		clothesService.deleteClothese(3);
+	}
+
+	@Test
 	public void getClothesByCid(){
 		Clothes clothes = clothesService.getClothesBycId(3);
 
 		System.out.println(clothes);
 	}
+
+	@Test
+	public void update(){
+		User user = new User();
+		user.setId("lewyine");
+		user.setPassword("wldnjs790");
+		user.setName("lee");
+		user.setEmail("lweyine@naver.com");
+
+		userService.updateUser(user);
+	}
+
+
 
 	@Test
 	void contextLoads() {
