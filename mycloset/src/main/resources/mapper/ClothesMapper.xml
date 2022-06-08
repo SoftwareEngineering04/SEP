@@ -2,8 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="subways.mycloset.dao.ClothesDao">
-    <select id="getClothesByCid" resultType="Clothes">
-        SELECT * FROM clothes where cId;
+    <insert id="add" parameterType="subways.mycloset.dto.Clothes">
+        INSERT INTO clothes
+            (cID, name, category, subcategory, filter, photo, isFavorite, id)
+        VALUES(#{cId},#{name},#{category}, #{subcategory}, #{filter},#{photo}, #{isFavorite}, #{id})
+    </insert>
+
+    <select id="getClothesBycId" parameterType="Integer" resultType="Clothes">
+        SELECT * FROM clothes where cId=#{cId};
     </select>
 
     <select id="getAllClothes" resultType="Clothes">

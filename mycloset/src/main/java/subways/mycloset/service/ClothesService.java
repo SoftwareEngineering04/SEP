@@ -7,6 +7,6 @@ import java.util.List;
 public interface ClothesService {
 
     int addClothes(Clothes clothes);
-    Clothes getClothesInfo(int cId);
+    Clothes getClothesBycId(int cId);
     List<Clothes> getAllClothes();
 }

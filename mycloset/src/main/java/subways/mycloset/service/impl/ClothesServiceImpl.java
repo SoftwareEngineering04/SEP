@@ -23,7 +23,7 @@ public class ClothesServiceImpl implements ClothesService {
         return 0;
     }
 
-    public Clothes getClothesInfo(int cId){
+    public Clothes getClothesBycId(int cId){
 
         Clothes clothes = clothesDao.getClothesBycId(cId);
 

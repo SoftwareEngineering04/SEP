@@ -17,8 +17,11 @@ public class ClothesController {
     @Autowired
     ClothesServiceImpl clothesService;
 
+    @GetMapping("/clothes/add")
+    public int addClothes(Clothes clothes){ return clothesService.addClothes(clothes); }
+
     @GetMapping("/clothes2")
-    public Clothes getClothesInfo(int cId){ return clothesService.getClothesInfo(cId);}
+    public Clothes getClothesBycId(int cId){ return clothesService.getClothesBycId(cId); }
 
     @GetMapping("/clothes")
     public List<Clothes> testController() { return clothesService.getAllClothes(); }
