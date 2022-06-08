@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
 
-const SeasonButton = () => {
+const SeasonButton = (props) => {
   const [onSpring,setSpring] = useState(false);
   const [onSummer,setSummer] = useState(false);
   const [onFall,setFall] = useState(false);
@@ -30,12 +30,19 @@ const SeasonButton = () => {
   },[onSpring, onSummer, onFall, onWinter])
   
   return (
-    <>
-    <Button name={"봄"} value={'봄'} backgroundColor={springColor} onClick={handleSpringColor}/>
-    <Button name={"여름"} value={'여름'} backgroundColor={summerColor} onClick={handleSummerColor} />
-    <Button name={"가을"} value={'가을'} backgroundColor={fallColor} onClick={handleFallColor} />
-    <Button name={"겨울"} value={'겨울'} backgroundColor={winterColor} onClick={handleWinterColor}/>
-    </>
+    <div style={{textAlign:'center', margin:props.margin}}>
+    <Button name={"봄"} value={'봄'} backgroundColor={springColor} 
+    onClick={handleSpringColor} width={props.width} height={props.height}
+    margin={'0 5px 0 0'}/>
+    <Button name={"여름"} value={'여름'} backgroundColor={summerColor} 
+    onClick={handleSummerColor}  width={props.width} height={props.height}
+    margin={'0 5px 0 0'}/>
+    <Button name={"가을"} value={'가을'} backgroundColor={fallColor} 
+    onClick={handleFallColor}  width={props.width} height={props.height}
+    margin={'0 5px 0 0'}/>
+    <Button name={"겨울"} value={'겨울'} backgroundColor={winterColor} 
+    onClick={handleWinterColor}  width={props.width} height={props.height}/>
+    </div>
   );
 }
 

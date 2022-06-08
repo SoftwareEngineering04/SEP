@@ -40,8 +40,8 @@ function Weather()  {
         width:'100px',
         height:'100px'
       }}/>
-      <p style={{display:'inline'}}><b>temp : {temp}˚C</b></p>
-      <p style={{display:'inline'}}>   <b>weather : {weather}</b></p>
+      <p style={{display:'inline'}}><b>기온 : {temp}˚C</b></p>
+      <p style={{display:'inline'}}>   <b>날씨 : {weather}</b></p>
     </div>
   );
 }

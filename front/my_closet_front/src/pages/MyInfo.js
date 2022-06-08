@@ -11,7 +11,7 @@ const MyInfo = () => {
     <div style={{textAlign:'center'}}>
     <div style={{marginLeft:'70px', marginBottom:'50px'}}>{'나의 회원정보'}
     <Link to='/'>
-    <Button value={'로그아웃'} margin={'0px 70px'}/></Link></div>
+    <Button value={'로그아웃'} margin={'0px 70px'} height={'30px'}/></Link></div>
 
     <div style={{display:'block', margin:'10px auto'}}>
     <label htmlFor={'name'}>{'이름 '}</label>
@@ -34,10 +34,11 @@ const MyInfo = () => {
     disabled={true} /></div>
 
     <Link to='/changeinfo' style={{textDecoration:'none'}}>
-    <Button value={'회원 정보 수정하기'} display={'block'} margin={'10px auto'}/></Link>
+    <Button value={'회원 정보 수정하기'} display={'block'}
+     margin={'10px auto'} height={'30px'}/></Link>
     <Link to='/main'>
-    <Button value={'확인'} margin={'0px 10px'}/></Link>
-    <Button value={'회원 탈퇴'} margin={'0px 10px'}/>
+    <Button value={'확인'} margin={'0px 10px'} height={'30px'}/></Link>
+    <Button value={'회원 탈퇴'} margin={'0px 10px'} height={'30px'}/>
     </div>
     <BottomMenu />
   </>

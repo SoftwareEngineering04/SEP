@@ -41,9 +41,9 @@ const ChangeInfo = () => {
     placeholder={'비밀번호 확인'} /></div>
 
     <Link to='/myinfo'>
-    <Button value={'저장하기'} height={'25px'}/></Link>
+    <Button value={'저장하기'} height={'30px'} margin={'0 5px 0 0'}/></Link>
     <Link to='/myinfo'>
-    <Button value={'뒤로가기'} height={'25px'}/></Link>
+    <Button value={'뒤로가기'} height={'30px'}/></Link>
     </div>
     <BottomMenu />
     </>

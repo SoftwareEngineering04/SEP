@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
-
+//아직 css 안건듬
 const AboutCloth = (props) => {
   return(
     <>

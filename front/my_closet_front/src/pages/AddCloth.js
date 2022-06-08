@@ -15,6 +15,7 @@ const AddColth = () => {
   }
   return(
     <>
+    <div style={{textAlign:'center'}}>
     <Header />
     <p>{'의류 추가하기'}</p>
     <Input type='file'
@@ -27,22 +28,28 @@ const AddColth = () => {
       border : 'none',
       fontSize : '40px',
       padding : 0,
-      lineHeight : 0
+      lineHeight : 0,
     }}
     onClick={handleFavorite}>{favorite}</button>
-    <select>
+    <div style={{display:'block', margin:'10px auto'}}>
+    <select style={{height:'30px', borderRadius:'5px', marginRight:'5px'}}>
       <option value={''}>{'상위 카테고리 선택'}</option>
     </select>
-    <select>
+    <select style={{height:'30px', borderRadius:'5px'}}>
       <option value={''}>{'하위 카테고리 선택'}</option>
     </select>
-    <SeasonButton />
-    <Input type="text" placeholder={'이름을 입력해주세요'}/>
-    <Input type="text" placeholder={'태그를 입력해주세요'}/>
-    <Input type="text" placeholder={'연관코디 어떡하지...'}/>
-    <Button value={'등록하기'} />
+    </div>
+    <SeasonButton width={'70px'} height={'30px'} margin={'5px auto'}/>
+    <Input type="text" placeholder={'이름을 입력해주세요'}
+    display={'block'} margin={'8px auto'}/>
+    <Input type="text" placeholder={'태그를 입력해주세요'}
+    display={'block'} margin={'8px auto'}/>
+    <Input type="text" placeholder={'연관코디 어떡하지...'}
+    display={'block'} margin={'8px auto'}/>
+    <Button value={'등록하기'} height={'30px'} margin={'0 5px 0 0'}/>
     <Link to='/main'>
-    <Button value={'취소하기'} /></Link>
+    <Button value={'취소하기'} height={'30px'}/></Link>
+    </div>
     <BottomMenu />
     </>
   );
