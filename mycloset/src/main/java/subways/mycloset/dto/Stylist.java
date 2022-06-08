@@ -10,5 +10,6 @@ public class Stylist {
     private int cId;
     private int stylistCnt;
     private String name;
-    private FileInfoDto photo;
+    //private FileInfoDto photo;
+    private int photo;
 }

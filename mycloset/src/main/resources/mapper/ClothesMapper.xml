@@ -3,7 +3,14 @@
 
 <mapper namespace="subways.mycloset.dao.ClothesDao">
     <select id="getClothesByCid" resultType="Clothes">
-        SELECT * FROM user where cId;
+        SELECT * FROM clothes where cId;
     </select>
 
+    <select id="getAllClothes" resultType="Clothes">
+        SELECT * FROM clothes;
+    </select>
+
+    <select id="">
+        
+    </select>
 </mapper>

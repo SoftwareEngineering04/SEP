@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 import subways.mycloset.dto.Clothes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Repository
 @Mapper
@@ -20,4 +21,5 @@ public interface ClothesDao {
     ArrayList<Clothes> getClothesBySeason();
     ArrayList<Clothes> getFavorites();
 
+    List<Clothes> getAllClothes();
 }
