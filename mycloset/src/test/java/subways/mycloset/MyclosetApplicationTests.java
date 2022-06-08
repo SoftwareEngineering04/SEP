@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import subways.mycloset.dto.User;
+import subways.mycloset.service.ClothesService;
 import subways.mycloset.service.UserService;
 
 @SpringBootTest
@@ -12,7 +13,8 @@ class MyclosetApplicationTests {
 
 	@Autowired
 	UserService userService;
-
+	@Autowired
+	ClothesService clothesService;
 	@DisplayName("회원가입")
 	@Test
 	public void register(){
@@ -23,6 +25,12 @@ class MyclosetApplicationTests {
 		user1.setEmail("werffwer");
 
 		userService.addUser(user1);
+	}
+
+	@Test
+	public void getClothesByCid(){
+		clothesService.getClothesInfo('1');
+
 	}
 
 	@Test
