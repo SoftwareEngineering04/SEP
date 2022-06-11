@@ -29,7 +29,7 @@ public class UserController {
 
 
     @RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
-    public String login(String id, String password, HttpServletRequest req){
+    public int login(String id, String password, HttpServletRequest req){
 
         LoginVo loginVo = new LoginVo();
         loginVo.setId(id);
@@ -38,10 +38,11 @@ public class UserController {
         userService.login(loginVo, req);
 
         User sessionId = userService.getSessionId(loginVo, req);
+        //추가한부분
+        if(sessionId.getId() != null)
+            return 0;
 
-        System.out.println("sessionId = " + sessionId);
-
-        return sessionId.getId();
+        return -1;
     }
 
     @GetMapping("/user-adduser")

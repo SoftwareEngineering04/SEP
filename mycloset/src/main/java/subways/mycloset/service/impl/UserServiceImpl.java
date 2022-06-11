@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
             userRepository.save(loginVO);
         }
         else{
+            System.out.println("비밀번호 일치하지 않음");
             return "비밀번호가 일치하지 않음";
         }
 
