@@ -2,15 +2,13 @@ import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import BottomMenu from "../components/BottomMenu";
 import SeasonButton from "../components/SeasonButton";
+import {useLocation } from "react-router-dom";
 
 const ClothList = () => {
   const [clothList, setClothList] = useState([]);
-  const getClothList = () => {
-
-  }
-  useEffect(() => {
-     getClothList();//fetch 후 setClothList 해줘야함
-  },[clothList]);
+  const location = useLocation();
+  console.log(location.state.category);
+  console.log(location.state.season);
   return(
     <>
     <Header />

@@ -32,7 +32,7 @@ const Join = () => {
 
     <p>회원정보를 등록하시겠습니까?</p>
     <Link to='/login'>
-    <Button width={'80px'} height={'30px'} value={'예'} /></Link>
+    <Button width={'80px'} height={'30px'} value={'예'} margin={'0 5px 0 0'} /></Link>
     <Link to='/login'>
     <Button width={'80px'} height={'30px'} value={'아니오'} /></Link>
     </form>

@@ -9,11 +9,11 @@ import CategoryButton from "../components/CategoryButton";
 import SeasonButton from "../components/SeasonButton";
 
 const Main = () => {
-  const categoryForButton = ['아우터', '상의', '하의', '신발'];
-  const seasonForButton = ['봄', '여름', '가을', '겨울'];
   const [category, setCategory] = useState([]);
   const [season, setSeason] = useState([]);
-
+  const showFilter = () => {
+    console.log('메인에서의 선택 : ',category, season);
+  }
   return (
     <>
       <Header />
@@ -31,8 +31,11 @@ const Main = () => {
       <label htmlFor="season">계절별 </label>
       <Input type={'text'} readOnly={true}
       value={season} /></div>
-      <Link to='/clothlist'>
-      <Button value={'검색'} width={'200px'} height={'25px'} margin={'0 10px'}/></Link>
+      <Link to='/clothlist'
+      state={{category : category,
+      season : season}}>
+      <Button value={'검색'} width={'200px'} height={'25px'} margin={'0 10px'}
+      onClick={showFilter}/></Link>
       </div>
       <BottomMenu />
     </>
