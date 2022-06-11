@@ -2,9 +2,11 @@ const Button = (props) => {
   return (
     <button
     onClick={props.onClick}
+    onChange={props.onChange}
     name={props.name}
       style={{
-        backgroundColor: props.backgroundColor,
+        backgroundImage : props.backgoundImage,
+        backgroundColor: props.backgroundColor? props.backgroundColor : 'rgb(230,230,230)',
         color: props.color,
         border: props.border? props.borer : 'none',
         borderRadius: "7px",

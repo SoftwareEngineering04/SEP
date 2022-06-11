@@ -7,23 +7,19 @@ import FindPW from './pages/FindPW';
 import Main from './pages/Main';
 import MyInfo from './pages/MyInfo';
 import ChangeInfo from './pages/ChangeInfo';
-import AddCloth from './pages/AddCloth';
+import AddColth from './pages/AddCloth';
 import ClothList from './pages/ClothList';
 import Search from './pages/Search';
 import Favorite from './pages/Favorite';
-import Users from './pages/Users';
-import PostTest from './pages/PostTest';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path='/postTest' element={<PostTest />} />
-        <Route path='/users' element={<Users />} />
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/search' element={<Search />} />
         <Route path='/clothlist' element={<ClothList />} />
-        <Route path='/addcloth' element={<AddCloth />} />
+        <Route path='/addcloth' element={<AddColth />} />
         <Route path='/changeinfo' element={<ChangeInfo />} />
         <Route path='/myinfo' element={<MyInfo />} />
         <Route path='/main' element={<Main />} />

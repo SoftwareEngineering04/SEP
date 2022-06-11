@@ -2,21 +2,43 @@ import Button from "../components/Button";
 import Header from "../components/Header"
 import Input from "../components/Input"
 import {Link} from 'react-router-dom';
-import {useEffect, useRef, useState} from 'react';
-import axios from 'axios';
+import {useEffect,useRef,useState} from 'react';
+import Axios from 'axios'
 
 const Login = () => {
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState('');
+
+  const handleId = (e) => {
+    setId(e.target.value);
+    console.log(id);
+  }
+  const handlePw = (e) => {
+    setPw(e.target.value);
+    console.log(pw);
+  }
+  const handleLogin = () => {
+    const login = Axios.create({
+      baseURL: 'http://localhost:8000/'
+    })
+    login.post('/api/login', null,{params: {
+        id: id, password: pw
+      }}).then(function (response){
+      console.log(response.data);
+    }).catch(function (error){
+      console.log(error);
+    })
+  }
+
   const inputRef = useRef();
-  const inputRefps = useRef();
-
-
   useEffect(() => {
-    inputRefps.current.focus();
     inputRef.current.focus();
   },[])
 
+  const inputRefPw = useRef();
+  
   const loginAlert = () => {
-    alert(`환영합니다! ${inputRef.current.value} ${inputRefps.current.value} 님`);
+    alert(`환영합니다! ${inputRef.current.value} 님`);
   }
 
   return (
@@ -29,13 +51,13 @@ const Login = () => {
       <Input id={"id"} type={"text"} 
       placeholder={"아이디를 입력하세요"} 
       height={"25px"} ref={inputRef}
-      width={'200px'}/>
+      width={'200px'} onChange = {handleId}/>
       <hr style={{border : 'none'}} />
       <label htmlFor={"pw"}>비밀번호 </label>
       <Input id={'pw'} type={"password"}
       placeholder={"비밀번호를 입력하세요"}
-      height={"25px"} ref={inputRefps}
-      width={'200px'}/>
+      height={"25px"} onChange={handlePw}
+      width={'200px'} ref={inputRefPw}/>
     </div>
     <div style={{display : 'block'}}>
     <Link to='/findid'>
@@ -53,7 +75,10 @@ const Login = () => {
     <Button backgroundColor={"rgba(224,224,224,0.29)"}
     value={"로그인하기"} display={'block'} margin={'20px auto'}
     width={"200px"} height={"30px"}
-    onClick={()=> loginAlert()}/></Link>
+    onClick={() => {
+      loginAlert();
+    handleLogin(); }
+      }/></Link>
     <div style={{margin:'5px'}}>
       <Link to='/'>
       <Button backgroundColor={"rgba(224,224,224,0.29)"}

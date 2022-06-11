@@ -3,11 +3,13 @@ import { forwardRef } from "react";
 const Input = forwardRef((props, ref) => {
   return (
     <input 
+    onChange = {props.onChange}
     ref={ref}
     type={props.type}
     placeholder={props.placeholder}
     disabled={props.disabled}
     value={props.value}
+    readOnly={props.readOnly}
     style={{
       backgroundColor : "white",
       color : "gray",

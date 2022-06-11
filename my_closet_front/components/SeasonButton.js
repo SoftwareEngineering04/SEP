@@ -12,15 +12,26 @@ const SeasonButton = (props) => {
   const [winterColor,setWinterColor] = useState('');
   const handleSpringColor = () => {
     setSpring(!onSpring)
+    props.setSeason([...props.season, '봄'])
   }
   const handleSummerColor = () => {
     setSummer(!onSummer);
+    props.setSeason([...props.season, '여름'])
   }
   const handleFallColor = () => {
     setFall(!onFall);
+    props.setSeason([...props.season, '가을'])
   }
   const handleWinterColor = () => {
     setWinter(!onWinter);
+    props.setSeason([...props.season, '겨울'])
+  }
+  const resetSeason = () => {
+    props.setSeason([]);
+    setSpring(false)
+    setSummer(false);
+    setFall(false);
+    setWinter(false);
   }
   useEffect(() => {
     setSummerColor(onSummer ? 'skyblue' : '')
@@ -41,7 +52,10 @@ const SeasonButton = (props) => {
     onClick={handleFallColor}  width={props.width} height={props.height}
     margin={'0 5px 0 0'}/>
     <Button name={"겨울"} value={'겨울'} backgroundColor={winterColor} 
-    onClick={handleWinterColor}  width={props.width} height={props.height}/>
+    onClick={handleWinterColor}  width={props.width} height={props.height}
+    margin={'0 5px 0 0'}/>
+    <Button name={"초기화"} value={'초기화'} color={'red'}
+    onClick={resetSeason}  width={props.width} height={props.height}/>
     </div>
   );
 }

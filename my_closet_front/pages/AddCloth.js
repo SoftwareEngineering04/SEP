@@ -13,14 +13,19 @@ const AddColth = () => {
   const handleFavorite = () => {
     setFavorite(favorite===onFav ? notFav : onFav);
   }
+  const printImg = (e) => {
+    console.log(e.target.files);
+  }
   return(
     <>
     <div style={{textAlign:'center'}}>
     <Header />
     <p>{'의류 추가하기'}</p>
+    <form>
     <Input type='file'
     width={'150px'}
-    height={'150px'} />
+    height={'150px'} 
+    onChange={printImg}/>
     <button style={{
       width : '50px',
       height : '50px',
@@ -39,6 +44,7 @@ const AddColth = () => {
       <option value={''}>{'하위 카테고리 선택'}</option>
     </select>
     </div>
+    </form>
     <SeasonButton width={'70px'} height={'30px'} margin={'5px auto'}/>
     <Input type="text" placeholder={'이름을 입력해주세요'}
     display={'block'} margin={'8px auto'}/>

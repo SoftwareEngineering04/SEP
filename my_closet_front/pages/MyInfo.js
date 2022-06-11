@@ -3,6 +3,7 @@ import Button from '../components/Button';
 import Input from '../components/Input';
 import BottomMenu from '../components/BottomMenu';
 import {Link} from 'react-router-dom';
+import WithDrawModal from '../components/WithdrawModal';
 
 const MyInfo = () => {
   return(
@@ -37,8 +38,8 @@ const MyInfo = () => {
     <Button value={'회원 정보 수정하기'} display={'block'}
      margin={'10px auto'} height={'30px'}/></Link>
     <Link to='/main'>
-    <Button value={'확인'} margin={'0px 10px'} height={'30px'}/></Link>
-    <Button value={'회원 탈퇴'} margin={'0px 10px'} height={'30px'}/>
+    <Button value={'확인'} height={'30px'}/></Link>
+    <WithDrawModal value={'회원탈퇴'}/>
     </div>
     <BottomMenu />
   </>
