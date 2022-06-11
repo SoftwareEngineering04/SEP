@@ -2,7 +2,7 @@ import Button from "./Button";
 import {Link} from 'react-router-dom';
 import { AiFillHome,AiOutlineUser, AiOutlineSearch, AiOutlineFileAdd, AiFillStar } from "react-icons/ai";
 const BottomMenu = () => {
-  return ( 
+  return ( //text로 되어있는 버튼 아이콘으로 바꿔야함
     <div style={{
       position:'fixed',
       bottom:0,

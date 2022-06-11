@@ -36,7 +36,10 @@ const Login = () => {
   },[])
 
   const inputRefPw = useRef();
-  
+  useEffect(() => {
+    inputRefPw.current.focus();
+  },[])
+
   const loginAlert = () => {
     alert(`환영합니다! ${inputRef.current.value} 님`);
   }
