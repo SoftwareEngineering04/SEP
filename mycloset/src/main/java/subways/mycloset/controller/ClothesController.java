@@ -19,21 +19,22 @@ public class ClothesController {
 
     @GetMapping("/add")
     public int addClothes(Clothes clothes){ return clothesService.addClothes(clothes); }
-
+    @GetMapping("/update")
+    public int updateClothes(Clothes clothes){ return clothesService.updateClothes(clothes); }
     @GetMapping("/delete")
     public int deleteClothes(int cId){ return clothesService.deleteClothese(cId); }
 
-    @GetMapping("/update")
-    public int updateClothes(Clothes clothes){ return clothesService.updateClothes(clothes); }
 
-    @GetMapping("/bycId")
-    public Clothes getClothesBycId(int cId){ return clothesService.getClothesBycId(cId); }
-
-    @GetMapping("/byName")
-    public List<Clothes> getClothesByName(String name, String id){ return clothesService.getClothesByName(name, id); }
-
+    //인자 세션아이디로 바꾸기
     @GetMapping("/byCategory")
     public List<Clothes> getClothesByCategory(String category, String subcategory, String id){ return clothesService.getClothesByCategory(category, subcategory, id); }
+    @GetMapping("/bycId")
+    public Clothes getClothesInfo(int cId){ return clothesService.getClothesBycId(cId); }
+
+
+    //태그 일단 제외
+    @GetMapping("/byName")
+    public List<Clothes> getClothesByName(String name, String id){ return clothesService.getClothesByName(name, id); }
 
     @GetMapping("/byFavorite")
     public List<Clothes> getFavorites(String id){ return clothesService.getFavorites(id); }

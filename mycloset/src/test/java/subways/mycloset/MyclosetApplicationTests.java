@@ -5,13 +5,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockHttpSession;
+import org.springframework.test.web.servlet.MockMvc;
 import subways.mycloset.dto.Clothes;
 import subways.mycloset.dto.Filter;
 import subways.mycloset.dto.User;
 import subways.mycloset.service.ClothesService;
 import subways.mycloset.service.UserService;
 
+import java.net.http.HttpRequest;
 import java.util.List;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 @SpringBootTest
 class MyclosetApplicationTests {
@@ -20,6 +24,7 @@ class MyclosetApplicationTests {
 	UserService userService;
 	@Autowired
 	ClothesService clothesService;
+
 
 	@Test
 	public void login(){

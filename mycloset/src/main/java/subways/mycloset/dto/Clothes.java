@@ -14,7 +14,9 @@ public class Clothes {
     private String photo;
     private boolean isFavorite;
     private String id;
+
+
+    //안할거
     //private List<String> tag;
     //private List<Integer> stylist;
-
 }
