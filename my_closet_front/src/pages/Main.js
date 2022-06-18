@@ -11,31 +11,35 @@ import SeasonButton from "../components/SeasonButton";
 const Main = () => {
   const [category, setCategory] = useState([]);
   const [season, setSeason] = useState([]);
-  const showFilter = () => {
-    console.log('메인에서의 선택 : ',category, season);
-  }
+  
   return (
     <>
       <Header />
       <Weather />
+
       <CategoryButton width={'55px'} height={'30px'}
       category={category} setCategory={setCategory}/>
+
       <SeasonButton width={'55px'} height={'30px'} 
       season={season} setSeason={setSeason}/>
+
+
       <div style={{textAlign:'center'}}>
       <div style={{display:'block', margin:'10px auto'}}>
-      <label htmlFor="category">종류별 </label>
-      <Input type={'text'} readOnly={true}
-      value={category} /></div>
+        <label htmlFor="category">종류별 </label>
+        <Input type={'text'} readOnly={true}
+        value={category} />
+      </div>
       <div style={{display:'block', margin:'10px auto'}}>
-      <label htmlFor="season">계절별 </label>
-      <Input type={'text'} readOnly={true}
-      value={season} /></div>
+        <label htmlFor="season">계절별 </label>
+        <Input type={'text'} readOnly={true}
+        value={season} />
+      </div>
+
       <Link to='/clothlist'
-      state={{category : category,
-      season : season}}>
+      state={{category : category, season : season}}>
       <Button value={'검색'} width={'200px'} height={'25px'} margin={'0 10px'}
-      onClick={showFilter}/></Link>
+      /></Link>
       </div>
       <BottomMenu />
     </>

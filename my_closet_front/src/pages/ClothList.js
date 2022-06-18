@@ -1,30 +1,34 @@
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import BottomMenu from "../components/BottomMenu";
-import SeasonButton from "../components/SeasonButton";
 import {useLocation } from "react-router-dom";
+import ParentCategory from "../components/ParentCategory";
+import Button from "../components/Button";
 
 const ClothList = () => {
   const [clothList, setClothList] = useState([]);
-  const location = useLocation();
-  console.log(location.state.category);
-  console.log(location.state.season);
+  const location = useLocation(); 
+  const [category, setCategory] = useState();
+  const [season, setSeason] = useState();
+  useEffect(() => {
+    setCategory(location.state.category);
+    setSeason(location.state.season); 
+  },[category, location.state.category, location.state.season, season]);
+
+  
   return(
     <>
     <Header />
     <div style={{textAlign:'center'}}>
     <div style={{margin:'10px auto'}}>
-    <select style={{padding:'5px', borderRadius:'5px'}}>
-      <option value={''}>{'상위 카테고리'}</option>
-    </select>
-    <select style={{padding:'5px', borderRadius:'5px'}}>
-      <option value={''}>{'상위 카테고리'}</option>
-    </select>
-    <select style={{padding:'5px', borderRadius:'5px'}}>
-      <option value={''}>{'정렬 방식'}</option>
-    </select>
+    <ParentCategory category={category} season={season} disabled={true} />
+    <div style={{display:'block', margin:'0 auto'}}>
+    {season && season.map((val) => (
+      <Button value={val} backgroundColor='skyblue'
+      margin={'5px 5px 0 0'} width={'50px'} height={'30px'} cursor={'default'}/>
+    ))}
     </div>
-    <SeasonButton width={'70px'} height={'30px'}/>
+    </div>
     <div>
       <p>{'의류 목록 출력해야함...'}</p>
     {<ul>

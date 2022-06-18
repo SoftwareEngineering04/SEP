@@ -10,7 +10,7 @@ const Button = (props) => {
         color: props.color,
         border: props.border? props.borer : 'none',
         borderRadius: "7px",
-        cursor: "pointer",
+        cursor: props.cursor ? props.cursor : 'pointer',
         fontSize: props.fontSize,
         width: props.width,
         height: props.height? props.height : '20px',
