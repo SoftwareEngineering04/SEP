@@ -12,7 +12,6 @@ const CategoryButton = (props) => {
   const [shoesColor,setShoesColor] = useState('');
 
   const [count, setCount] = useState(0);
-  console.log(`초기 count : ${count}`);
   const increaseCount = () => {
     setCount(count + 1);
   }

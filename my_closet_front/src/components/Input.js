@@ -12,7 +12,7 @@ const Input = forwardRef((props, ref) => {
     readOnly={props.readOnly}
     style={{
       backgroundColor : "white",
-      color : "gray",
+      color : props.color ? props.color : "gray",
       border : "1px solid gray",
       borderRadius : "3px",
       fontSize : props.fontSize,

@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom';
 import WithDrawModal from '../components/WithdrawModal';
 
 const MyInfo = () => {
+  //전역 상태 관리 공부해야하나... context API ? redux ? 
   return(
   <>
     <Header />

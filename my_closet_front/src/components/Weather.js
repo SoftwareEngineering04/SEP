@@ -35,11 +35,11 @@ function Weather()  {
      margin:'0px, auto',
       textAlign:'center',
       marginBottom:'20px'}}>
-      <img alt={'아이콘'} src={`http://openweathermap.org/img/wn/${icon}.png`} 
+      {(icon && <img alt={'아이콘'} src={`http://openweathermap.org/img/wn/${icon}.png`} 
       style={{
         width:'100px',
         height:'100px'
-      }}/>
+      }}/> )}
       <p style={{display:'inline'}}><b>기온 : {temp}˚C</b></p>
       <p style={{display:'inline'}}>   <b>날씨 : {weather}</b></p>
     </div>

@@ -3,7 +3,7 @@ import Header from "../components/Header"
 import Input from "../components/Input"
 import {Link} from 'react-router-dom';
 import {useEffect,useRef,useState} from 'react';
-import Axios from 'axios'
+import axios from 'axios'
 
 //다시한번 더 id, pw state 값으로 값 전송 안되는지 확인해보고 안되면 useRef()로 모든 통신 하는 로직으로 변경
 const Login = () => {
@@ -17,11 +17,10 @@ const Login = () => {
     setPw(e.target.value);
   }
   const handleLogin = () => { //로그인 버튼 누르면 서버와 통신
-    console.log(`id : ${id}, pw : ${pw}`);
-    const login = Axios.create({
+    const login = axios.create({
       baseURL: 'http://localhost:8000/'
     })
-    login.post('/api/login', null,{params: {
+    login.post('/api/login', null,{params: { //이거 post가 아니고 get으로 해야하는거 아님?
         id: id, password: pw
       }}).then(function (response){
       console.log(response.data);
@@ -91,7 +90,7 @@ const Login = () => {
       {/*뒤로가기 버튼*/}
       <Link to='/'>
       <Button backgroundColor={"rgba(224,224,224,0.29)"}
-      value={"뒤로가기"} 
+      value={"뒤로가기"} margin={'0 5px 0 0'}
       width={"100px"} height={"30px"} /></Link>
       {/*회원가입 버튼*/}
       <Link to='/join'>
