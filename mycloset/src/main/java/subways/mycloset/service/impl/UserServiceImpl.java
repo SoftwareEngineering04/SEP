@@ -18,35 +18,25 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public String login(LoginVo loginVO, HttpServletRequest req) {
+    public int login(LoginVo loginVO, HttpServletRequest req) {
         HttpSession session = req.getSession();
-        UserRepository userRepository = new UserRepository();
 
-        User realUser = userDao.getUserInfoById(loginVO.getId());
+        User realUser = userDao.getUserInfoById(loginVO.getId()); //db에서 일치하는 아이디의 유저 정보 가져옴
+
         if(realUser == null) {
-            return null;
+            return 1;
         }
 
         if(realUser.getPassword().equals(loginVO.getPassword())) {
             session.setAttribute("sessionId", realUser.getId());
             session.setAttribute("password", realUser.getPassword());
-
-            userRepository.save(loginVO);
         }
         else{
             System.out.println("비밀번호 일치하지 않음");
-            return "비밀번호가 일치하지 않음";
+            return 2;
         }
 
-        User user = new User();
-
-        String testId = (String) session.getAttribute("sessionId");
-
-        System.out.println(testId);
-
-        user.setId(testId);
-
-        return user.getId();
+        return 0;
     }
 
     @Override

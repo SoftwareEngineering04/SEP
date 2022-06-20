@@ -19,31 +19,13 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    @CrossOrigin("*")
-    @RequestMapping(value="/test", method = {RequestMethod.GET, RequestMethod.POST})
-    public String test(String id, String password){
-        System.out.println(id);
-
-        return id ;
-    }
-
-
     @RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
-    public int login(String id, String password, HttpServletRequest req){
+    public int login(LoginVo loginVo, HttpServletRequest req){
 
-        LoginVo loginVo = new LoginVo();
-        loginVo.setId(id);
-        loginVo.setPassword(password);
+        int value = userService.login(loginVo, req);
 
-        userService.login(loginVo, req);
-
-        User sessionId = userService.getSessionId(loginVo, req);
-        //추가한부분
-        if(sessionId.getId() != null)
-            return 0;
-
-        return -1;
-    }
+        return value;
+    } //0: 로그인 성공, 1: 일치하는 아이디 없음, 2: 비밀번호 일치하지 않음
 
     @GetMapping("/user-adduser")
     public int addUser(User user){ return userService.addUser(user); }

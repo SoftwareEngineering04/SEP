@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface UserService {
 
-    String login(LoginVo loginVO, HttpServletRequest req);
+    int login(LoginVo loginVO, HttpServletRequest req);
     User getSessionId(LoginVo loginVO, HttpServletRequest req);
 
 
