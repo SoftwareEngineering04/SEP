@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import Input from "../components/Input";
 import {Link} from 'react-router-dom';
 import {useState} from 'react';
+import axios from 'axios';
 
 const Join = () => {
   const [name, setName] = useState('');
@@ -24,17 +25,31 @@ const Join = () => {
       setPwPass('');
     }
   }
-  const makeData = () => {
-   const joinInfo = {
-    name : name,
-    id : id,
-    pw : pw,
-    email : email,
-   }
-   console.log(joinInfo);
-   //joinInfo를 서버로 넘기는거 테스트 해봐야함
+   //서버로 전송
+   const handleJoin = () => {
+    if(pw===pw2) { 
+      setPwPass('none');
+      const join = axios.create({
+        baseURL: 'http://localhost:8000/'
+      })
+      join.post('/api/user-adduser', null,{params: { 
+          id: id, password: pw, name:name, email:email
+        }}).then(function (response){
+        if(response.data===-1) {
+          alert('회원가입 실패');
+        }
+        else {
+        alert(`회원가입 성공`)
+      }
+      }).catch(function (error){
+        alert(`에러발생 : ${error}`);
+      })
+    } else {
+      setPwPass('');
+      alert('비밀번호를 확인해주세요');
+    }
   }
-
+  
   return (
     <>
     <Header />
@@ -70,7 +85,8 @@ const Join = () => {
     {/*예 버튼을 누르면 checkPw 하고 서버로 보낼 data 만들고 login 화면으로
     이동하도록 구현해야함 (지금은 Link 없앰)*/}
     <Button width={'80px'} height={'30px'} 
-    value={'예'} margin={'0 5px 0 0'} onClick={() => {checkPw(); makeData();}}/>
+    value={'예'} margin={'0 5px 0 0'} onClick={() => {
+    handleJoin();}}/>
     <Link to='/login'>
     <Button width={'80px'} height={'30px'} value={'아니오'} /></Link>
     </div>

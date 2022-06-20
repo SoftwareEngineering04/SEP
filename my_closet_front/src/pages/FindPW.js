@@ -8,7 +8,7 @@ import axios from 'axios'
 const FindPW = () => {
   const [id, setId] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [pw, setPw] = useState('');
   const idHandler = (e) => {
     setId(e.target.value);
   }
@@ -19,12 +19,13 @@ const FindPW = () => {
     const pw = axios.create({
       baseURL : 'http://localhost:8000/'
     })
-    pw.get('/api/findpw',null, {params: {
+    pw.post('/api/findpw',null, {params: {
       id : id, email : email
     }}).then(function(response) {
-      console.log(response.data)
+      setPw(response.data);
+      alert(`PW 조회 성공 : ${response.data}`)
     }).catch(function(error) {
-      console.log(error)
+      alert(`에러 발생 : ${error}`);
     })
   }
   return (
@@ -36,13 +37,13 @@ const FindPW = () => {
     
     <Input type={'text'} display={'block'} margin={'10px auto'}
     placeholder={'아이디'} onChange={idHandler}/>
+
     <Input type={'email'} display={'block'} margin={'10px auto'}
     placeholder={'이메일'} onChange={emailHandler}/>
     
     <Button value={'찾기'} height={'25px'} onClick={getPw}/>
 
-    <p style={{fontSize:'small'}}>조회된 비밀번호는 다음과 같습니다.</p>
-    <p><b>{password}</b></p> {/*여기에 조회된 비밀번호 와야함*/}
+    <p>조회된 비밀번호 : <b>{pw}</b></p> 
 
     <Link to='/login'>
     <Button value={'로그인하기'} margin={'5px'}/></Link>

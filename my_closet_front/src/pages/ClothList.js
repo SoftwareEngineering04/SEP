@@ -8,12 +8,14 @@ import Button from "../components/Button";
 const ClothList = () => {
   const [clothList, setClothList] = useState([]);
   const location = useLocation(); 
-  const [category, setCategory] = useState();
+  const [firstCategory, setFirstCategory] = useState();
+  const [secondCategory, setSecondCategory] = useState();
   const [season, setSeason] = useState();
+  
   useEffect(() => {
-    setCategory(location.state.category);
+    setFirstCategory(location.state.category);
     setSeason(location.state.season); 
-  },[category, location.state.category, location.state.season, season]);
+  },[firstCategory, location.state.category, location.state.season, season]);
 
   
   return(
@@ -21,7 +23,8 @@ const ClothList = () => {
     <Header />
     <div style={{textAlign:'center'}}>
     <div style={{margin:'10px auto'}}>
-    <ParentCategory category={category} season={season} disabled={true} />
+    <ParentCategory category={firstCategory} season={season} disabled={true}
+    setFirstCategory={setFirstCategory} setSecondCategory={setSecondCategory}/>
     <div style={{display:'block', margin:'0 auto'}}>
     {season && season.map((val) => (
       <Button value={val} backgroundColor='skyblue'

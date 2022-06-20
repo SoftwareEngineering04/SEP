@@ -8,6 +8,7 @@ import axios from 'axios';
 const FindID = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [id, setId] = useState('');
   const nameHandler = (e) => {
     setName(e.target.value);
   }
@@ -18,12 +19,13 @@ const FindID = () => {
     const id = axios.create({
       baseURL : 'http://localhost:8000/'
     })
-    id.get('/api/findid', null, {params: {
+    id.post('/api/findid', null, {params: {
       name:name, email:email
     }}).then(function(response) {
-      console.log(response.data);
+      setId(response.data);
+      alert(`ID 조회 성공 : ${response.data}`)
     }).catch(function(error) {
-      console.log(error);
+      alert(`에러 발생 : ${error}`);
     })
   }
 
@@ -34,16 +36,18 @@ const FindID = () => {
     <p>아이디찾기</p>
     <p style={{fontSize:'small'}}>아이디 찾기를 위한 회원정보를 확인해주세요</p>
 
-    <Input type={'text'} display={'block'} margin={'10px auto'} color={'black'}
+    <Input type={'text'} display={'block'} 
+    margin={'10px auto'} color={'black'}
     placeholder={'이름'} onChange={nameHandler}/>
-    <Input type={'email'} display={'block'} margin={'0px auto'} color={'black'}
+
+    <Input type={'email'} display={'block'} 
+    margin={'0px auto'} color={'black'}
     placeholder={'이메일'} onChange={emailHandler}/>
 
     <Button value={'찾기'} display={'block'} 
     margin={'10px auto'} height={'25px'} onClick={getId} />
 
-    <Input type={'text'} display={'block'} margin={'10px auto'}
-    placeholder={'abcde12345'} disabled={true} />
+    <p>조회된 아이디 : <b>{id}</b></p>
 
     <Link to='/login'>
     <Button value={'로그인하기'} margin={'5px'}/></Link>

@@ -30,6 +30,7 @@ const Main = () => {
         <Input type={'text'} readOnly={true}
         value={category} />
       </div>
+      
       <div style={{display:'block', margin:'10px auto'}}>
         <label htmlFor="season">계절별 </label>
         <Input type={'text'} readOnly={true}

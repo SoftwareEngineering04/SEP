@@ -39,7 +39,6 @@ const AddColth = () => {
   useEffect(() => {
     setData(data);
   },[data]);
-
   return(
     <>
     <div style={{textAlign:'center'}}>

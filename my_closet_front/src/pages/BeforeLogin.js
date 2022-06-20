@@ -2,7 +2,9 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import {Link} from 'react-router-dom';
 
+
 const BeforeLogin = () => {
+  
   return (
     <>
     <Header />
@@ -12,7 +14,7 @@ const BeforeLogin = () => {
       display : 'block',
       margin : '0px auto'
     }}/>
-
+    
     {/*들어가기 버튼*/}
     <Link to="/login" style={{textDecoration : 'none'}}>
     <Button 
