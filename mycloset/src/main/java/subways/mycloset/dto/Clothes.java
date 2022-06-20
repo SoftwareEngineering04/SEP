@@ -10,7 +10,7 @@ public class Clothes {
     private String name;
     private String category;
     private String subcategory;
-    private Filter filter;
+    private String filter;
     private String photo;
     private boolean isFavorite;
     private String id;

@@ -1,13 +1,13 @@
 package subways.mycloset.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import subways.mycloset.dto.Clothes;
 import subways.mycloset.dto.User;
 import subways.mycloset.service.impl.ClothesServiceImpl;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -17,8 +17,9 @@ public class ClothesController {
     @Autowired
     ClothesServiceImpl clothesService;
 
-    @GetMapping("/add")
-    public int addClothes(Clothes clothes){ return clothesService.addClothes(clothes); }
+    @RequestMapping(value="/add", method = {RequestMethod.GET, RequestMethod.POST})
+    public int addClothes(Clothes clothes, HttpServletRequest req, @RequestParam(value = "img") MultipartFile file){ return clothesService.addClothes(clothes, req, file); }
+//    public int addClothes(Clothes clothes){ return clothesService.addClothes(clothes); }
     @GetMapping("/update")
     public int updateClothes(Clothes clothes){ return clothesService.updateClothes(clothes); }
     @GetMapping("/delete")

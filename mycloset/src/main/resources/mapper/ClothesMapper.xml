@@ -36,4 +36,8 @@
     <select id="getAllClothes" parameterType="String" resultType="Clothes">
         SELECT * FROM clothes where id=#{id};
     </select>
+
+    <select id="getAllClothesCount" parameterType="String" resultType="Clothes">
+        SELECT * FROM clothes;
+    </select>
 </mapper>

@@ -3,8 +3,11 @@ package subways.mycloset.dao;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import subways.mycloset.dto.Clothes;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +15,8 @@ import java.util.List;
 @Mapper
 public interface ClothesDao {
 
-    int add(Clothes clothes);
+    int add(Clothes clothes, HttpServletRequest req, @RequestParam(value = "img") MultipartFile file);
+//    int add(Clothes clothes);
     int updateClothes(Clothes clothes);
     int delete(int cId);
     Clothes getClothesBycId(int cId);
@@ -22,6 +26,8 @@ public interface ClothesDao {
     List<Clothes> getFavorites(String id);
 
     List<Clothes> getAllClothes(String id);
+
+    List<Clothes> getAllClothesCount();
 
     //ArrayList<Clothes> getClothesByTag();
 }
