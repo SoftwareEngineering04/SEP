@@ -8,6 +8,7 @@ import subways.mycloset.dto.User;
 import subways.mycloset.service.impl.UserServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
@@ -22,37 +23,39 @@ public class UserController {
     @RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
     public int login(LoginVo loginVo, HttpServletRequest req){
 
-        int value = userService.login(loginVo, req);
+        return userService.login(loginVo, req);
 
-        return value;
     } //0: 로그인 성공, 1: 일치하는 아이디 없음, 2: 비밀번호 일치하지 않음
+    @RequestMapping(value = "/logout", method = {RequestMethod.GET, RequestMethod.POST})
+    public void logout(HttpSession session){ session.invalidate(); }
 
-    @GetMapping("/user-adduser")
-    public int addUser(User user){ return userService.addUser(user); }
-    @GetMapping("/user-update")
-    public int update(User user){ return userService.updateUser(user); }
+    @RequestMapping(value="/user-adduser", method = {RequestMethod.GET, RequestMethod.POST})
+    public int register(User user){ return userService.addUser(user); }
+    @RequestMapping(value="/user-update", method = {RequestMethod.GET, RequestMethod.POST})
+    public User update(HttpServletRequest req, User user){ return userService.updateUser(req, user); }
     @GetMapping("/user-delete")
     public int delete(HttpServletRequest req){ return userService.deleteUser(req); }
 
-    @GetMapping("/user-findid")
-    public String findId(@RequestParam("name") String name, @RequestParam("email") String email){
+    @RequestMapping(value="/user-findid", method = {RequestMethod.GET, RequestMethod.POST})
+    public String findId(String name, String email){
         String id = userService.findId(name, email);
         return id;
     }
-    @GetMapping("/user-findpw")
-    public String findPasswor(@RequestParam("id") String id, @RequestParam("email") String email){
+    @RequestMapping(value="/user-findpw", method = {RequestMethod.GET, RequestMethod.POST})
+    public String findPassword(String id, String email){
         String password = userService.findPassword(id, email);
 
         return password;
     }
+    @GetMapping("/user-info")
+    public User getUserInfo(HttpServletRequest req){ return userService.getUserInfo(req); }
+
+    //----------------------------------------------------------------------------------------
+
 
     @GetMapping("/user-byid")
     public User getUserInfoById(@RequestParam("id") String id){ return userService.getUserInfoById(id); }
 
-    //logout
-
-
-    //Controller에서 삭제될 예정 test용
 
     @GetMapping("/user-byemail")
     public User getUserInfoByEmail(@RequestParam("email") String email){ return userService.getUserInfoByEmail(email); }
@@ -62,7 +65,5 @@ public class UserController {
         return userService.getAllUser();
     }
 
-    //리액트 연결 테스트
-    @GetMapping("/users")
-    public String test(){ return "Test test"; }
+
 }

@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService {
         if(realUser.getPassword().equals(loginVO.getPassword())) {
             session.setAttribute("sessionId", realUser.getId());
             session.setAttribute("password", realUser.getPassword());
+            System.out.println((String)session.getAttribute("sessionId"));
         }
         else{
             System.out.println("비밀번호 일치하지 않음");
@@ -55,21 +56,33 @@ public class UserServiceImpl implements UserService {
 
 
     public int addUser(User user){
-        userDao.addUser(user);
-
-        return 0;
+        User realUser = userDao.getUserInfoById(user.getId());
+        if(realUser.getId() != null)
+            return -1;
+        else {
+            userDao.addUser(user);
+            return 0;
+        }
     }
 
-    public int updateUser(User user){
+    public User updateUser(HttpServletRequest req, User user){
+        HttpSession session = req.getSession();
+
+        String id = (String) session.getAttribute("sessionId");
+
+        user.setId(id);
+
         userDao.updateUserInfo(user);
 
-        return 0;
+        return user;
     }
 
     public int deleteUser(HttpServletRequest req){
         HttpSession session = req.getSession();
 
         String id = (String) session.getAttribute("sessionId");
+        //-test-
+        System.out.println(id);
 
         userDao.deleteUser(id);
 
@@ -79,15 +92,39 @@ public class UserServiceImpl implements UserService {
     public String findId(String name, String email){
         User user = userDao.getUserInfoByEmail(email);
 
-        return user.getId();
+        if(user == null)
+            return null;
+
+        if( name == user.getName())
+            return user.getId();
+        else
+            return null;
+
     }
 
     public String findPassword(String id, String email){
         User user = userDao.getUserInfoById(id);
 
-        return user.getPassword();
+        if(user == null)
+            return null;
+
+        if(email == user.getEmail())
+            return user.getPassword();
+        else
+            return null;
+
     }
 
+    public User getUserInfo(HttpServletRequest req){
+        HttpSession session = req.getSession();
+        String id = (String) session.getAttribute("sessionId");
+        System.out.println(id);
+
+        User user = userDao.getUserInfoById(id);
+
+        return user;
+    }
+//------------------------------------------------------------------------------
     public User getUserInfoByEmail(String email){
         User user = userDao.getUserInfoByEmail(email);
 
@@ -99,6 +136,7 @@ public class UserServiceImpl implements UserService {
 
         return user;
     }
+
     public List<User> getAllUser() {
         List<User> users = userDao.getAllUser();
         return users;

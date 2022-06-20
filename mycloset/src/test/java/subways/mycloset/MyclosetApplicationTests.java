@@ -85,7 +85,6 @@ class MyclosetApplicationTests {
 		user.setName("lee");
 		user.setEmail("lweyine@naver.com");
 
-		userService.updateUser(user);
 	}
 
 

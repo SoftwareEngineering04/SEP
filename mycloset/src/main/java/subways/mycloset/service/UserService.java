@@ -13,10 +13,12 @@ public interface UserService {
 
 
     int addUser(User user);
-    int updateUser(User user);
+    User updateUser(HttpServletRequest req, User user);
     int deleteUser(HttpServletRequest req);
 
     String findId(String name, String email);
+
+    User getUserInfo(HttpServletRequest req);
 
 
     //xxx
