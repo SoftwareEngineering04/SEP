@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="subways.mycloset.dao.FilesDao">
+    <insert id="fileUpload" parameterType="subways.mycloset.dto.Files">
+        INSERT INTO files
+            (fId, cId, fileName, fileOriName, fileUrl)
+        VALUES(#{fId},#{cId},#{fileName}, #{fileOriName}, #{fileUrl})
+    </insert>
+
+    <select id="findfile" parameterType="Integer" resultType="Files">
+        SELECT * FROM files where fId=#{fId};
+    </select>
+</mapper>

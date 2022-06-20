@@ -18,13 +18,13 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     @Override
-    public int login(LoginVo loginVO, HttpServletRequest req) {
+    public User login(LoginVo loginVO, HttpServletRequest req) {
         HttpSession session = req.getSession();
 
         User realUser = userDao.getUserInfoById(loginVO.getId()); //db에서 일치하는 아이디의 유저 정보 가져옴
 
         if(realUser == null) {
-            return 1;
+            return null;
         }
 
         if(realUser.getPassword().equals(loginVO.getPassword())) {
@@ -34,10 +34,10 @@ public class UserServiceImpl implements UserService {
         }
         else{
             System.out.println("비밀번호 일치하지 않음");
-            return 2;
+            return null;
         }
 
-        return 0;
+        return realUser;
     }
 
     @Override
@@ -54,15 +54,9 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-
-    public int addUser(User user){
-        User realUser = userDao.getUserInfoById(user.getId());
-        if(realUser.getId() != null)
-            return -1;
-        else {
-            userDao.addUser(user);
-            return 0;
-        }
+    public User addUser(User user){
+        userDao.addUser(user);
+        return user;
     }
 
     public User updateUser(HttpServletRequest req, User user){

@@ -21,16 +21,13 @@ public class UserController {
     UserServiceImpl userService;
 
     @RequestMapping(value="/login", method = {RequestMethod.GET, RequestMethod.POST})
-    public int login(LoginVo loginVo, HttpServletRequest req){
-
+    public User login(LoginVo loginVo, HttpServletRequest req){
         return userService.login(loginVo, req);
-
     } //0: 로그인 성공, 1: 일치하는 아이디 없음, 2: 비밀번호 일치하지 않음
     @RequestMapping(value = "/logout", method = {RequestMethod.GET, RequestMethod.POST})
     public void logout(HttpSession session){ session.invalidate(); }
-
     @RequestMapping(value="/user-adduser", method = {RequestMethod.GET, RequestMethod.POST})
-    public int register(User user){ return userService.addUser(user); }
+    public User register(User user){ return userService.addUser(user); }
     @RequestMapping(value="/user-update", method = {RequestMethod.GET, RequestMethod.POST})
     public User update(HttpServletRequest req, User user){ return userService.updateUser(req, user); }
     @GetMapping("/user-delete")
