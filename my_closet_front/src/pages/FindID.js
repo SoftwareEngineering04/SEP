@@ -19,11 +19,11 @@ const FindID = () => {
     const id = axios.create({
       baseURL : 'http://localhost:8000/'
     })
-    id.post('/api/findid', null, {params: {
+    id.post('/api/user-findid', null, {params: {
       name:name, email:email
     }}).then(function(response) {
       setId(response.data);
-      alert(`ID 조회 성공 : ${response.data}`)
+      alert(`ID 조회 성공 : ${JSON.stringify(response.data)}`)
     }).catch(function(error) {
       alert(`에러 발생 : ${error}`);
     })

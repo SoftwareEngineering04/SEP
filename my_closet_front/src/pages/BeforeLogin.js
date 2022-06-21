@@ -19,8 +19,8 @@ const BeforeLogin = () => {
     <Link to="/login" style={{textDecoration : 'none'}}>
     <Button 
     display={'block'} margin={'0px auto'}
-    width={"100px"} height={"30px"} 
-    value={"들어가기"} backgroundColor={"rgba(52,152,219,0.28)"}
+    width={"150px"} height={"30px"} 
+    value={"로그인하러가기"} backgroundColor={"rgba(52,152,219,0.28)"}
     color={"white"} textDecoration={'none'}></Button></Link>
   </>);
 }

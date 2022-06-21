@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Modal.css";
 import axios from 'axios'
+import { Link } from "react-router-dom";
 
 const WithDrawModal = (props) => {
   const [modal, setModal] = useState(false);
@@ -12,8 +13,8 @@ const WithDrawModal = (props) => {
     const withDraw = axios.create({
       baseURL: 'http://localhost:8000/'
     })
-    withDraw.post('/api/login', null,{params: {
-        id: props.id, password: props.pw
+    withDraw.post('/api/user-delete', null,{params: {
+        id: props.id
       }}).then(function (response){
       if(response===-1) {
         alert('회원탈퇴 실패...');
@@ -43,9 +44,11 @@ const WithDrawModal = (props) => {
           <div className="modal-content">
             <p>탈퇴하시면 계정에 등록되어있는 <b>모든 데이터가 삭제</b>됩니다. 
               정말 탈퇴하시겠습니까?</p>
-              {/*여기에 로그인 전 메인화면으로 가는 Link 나중에 삽입해야함*/}
+
+            <Link to={'/'}>
             <button className="close-modal" onClick={() => {
               toggleModal(); doWithDraw(); }}> 네 </button>
+            </Link>
             <button className="close-modal" onClick={() => {
               toggleModal();}}>아니오</button>
           </div>

@@ -6,19 +6,18 @@ import {useEffect,useRef,useState} from 'react';
 import axios from 'axios'
 import { useDispatch } from "react-redux";
 
-//다시한번 더 id, pw state 값으로 값 전송 안되는지 확인해보고 안되면 useRef()로 모든 통신 하는 로직으로 변경
+
 const Login = () => {
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const [id, setId] = useState(); //아이디 state
   const [pw, setPw] = useState(); //비밀번호 state
-  const [isLogin, setIsLogin] = useState('');
+  const [isLogin, setIsLogin] = useState('none'); //로그인 성공/실패 여부
 
-  const handleId = (e) => { //아이디 입력 -> state로 설정
-    setId(e.target.value);
-  }
-  const handlePw = (e) => { //비밀번호 입력 -> state로 설정
-    setPw(e.target.value);
-  }
+  //아이디 입력 -> state로 설정
+  const handleId = (e) => setId(e.target.value);
+  //비밀번호 입력 -> state로 설정
+  const handlePw = (e) => setPw(e.target.value);
+
   const handleLogin = () => { //로그인 버튼 누르면 서버와 통신
     const login = axios.create({
       baseURL: 'http://localhost:8000/'
@@ -27,20 +26,21 @@ const Login = () => {
         id: id, password: pw
       }}).then(function (response){
       if(response.data.id === undefined || response.data.password === undefined) {
-        alert('아이디 또는 비밀번호를 다시한번 확인해주세요...');
-        setIsLogin('/login');
+         setIsLogin('none');
+        alert(`로그인 실패, 경로 : ${isLogin}`);
       }
       else {
-      alert(`로그인 성공
+      setIsLogin('');
+      alert(`로그인 성공, 경로 : ${isLogin}
       id : ${response.data.id}, pw : ${response.data.password}
       name : ${response.data.name}, email : ${response.data.email}`);
+
       dispatch({type : 'login', loginId : response.data.id,
       loginPw : response.data.password, loginName : response.data.name,
       loginEmail : response.data.email});
-      setIsLogin('/main');
     }
     }).catch(function (error){
-      alert('아이디 또는 비밀번호를 다시한번 확인해주세요');
+      console.log(`경로 : ${isLogin}  에러 발생 : ${error}`);
     })
   }
 
@@ -53,7 +53,7 @@ const Login = () => {
   /*const loginAlert = () => { //환영문구도 로그인 성공시로 바꿔줘야함
     alert(`환영합니다! ${inputRef.current.value} 님`);
   }*/
-  
+    
   return (
     <>
     <Header />
@@ -92,14 +92,21 @@ const Login = () => {
     <div></div> {/*아이디, 비밀번호 잘못입력시 문구 출력 해야함*/}
 
     {/*로그인 버튼*/}
-    <Link to={isLogin} style={{textDecoration : 'none'}}>
     <Button backgroundColor={"rgba(224,224,224,0.29)"}
     value={"로그인하기"} display={'block'} margin={'20px auto'}
     width={"200px"} height={"30px"}
     onClick={() => {
       handleLogin(); }
-      }/></Link>
-  
+      }/>
+
+    {/*로그인 성공시 보여지는 들어가기 버튼*/}
+    <div style={{display:isLogin}}>
+      <p>로그인에 성공하였습니다.</p>
+      <Link to={'/main'} style={{textDecoration : 'none'}}>
+      <Button value={'들어가기'} backgroundColor={'skyblue'}
+      width={'200px'} height={'30px'} margin={'0 0 7px 0'}/>
+      </Link>
+    </div>
     <div style={{margin:'5px'}}>
       {/*뒤로가기 버튼*/}
       <Link to='/'>
@@ -111,8 +118,8 @@ const Login = () => {
       <Button backgroundColor={"rgba(224,224,224,0.29)"}
       value={"회원가입"} 
       width={"100px"} height={"30px"}/></Link>
-    </div>
 
+    </div>
     </div>
     </>
   );

@@ -12,11 +12,13 @@ import ClothList from './pages/ClothList';
 import Search from './pages/Search';
 import Favorite from './pages/Favorite';
 import FileUploadTest from './pages/FileUploadTest';
+import TestImage from './pages/TestImage';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/testimage' element={<TestImage />} />
         <Route path='/filetest' element={<FileUploadTest />} />
         <Route path='/favorite' element={<Favorite />} />
         <Route path='/search' element={<Search />} />

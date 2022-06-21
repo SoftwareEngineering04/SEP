@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Input from "../components/Input";
 import { useDispatch, useSelector } from 'react-redux';
 import {useState} from 'react';
+import axios from 'axios'
 
 
 const ChangeInfo = () => {
@@ -26,7 +27,25 @@ const ChangeInfo = () => {
   const saveChangedInfo = () => {
     dispatch({type : 'changeInfo', newName : newName,
     newPw : newPw, newEmail : newEmail});
+
+    const infoPost = axios.create({
+      baseURL: 'http://localhost:8000/'
+    })
+    infoPost.post('/api/user-update', null,{params: {
+       id : userId, password: newPw, name : newName, email : newEmail,
+      }}).then(function (response){
+      if(response.data.id === undefined || response.data.password === undefined) {
+        alert(`전송 실패`);
+      }
+      else {
+      alert(`전송 성공`);
+    }
+    }).catch(function (error){
+      console.log(`에러 발생`);
+    })
   }
+
+
   return (
     <>
     <Header />

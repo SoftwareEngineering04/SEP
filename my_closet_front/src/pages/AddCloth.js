@@ -1,44 +1,49 @@
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Input from "../components/Input";
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import { Link } from "react-router-dom";
 import BottomMenu from "../components/BottomMenu";
 import SeasonButton from "../components/SeasonButton";
 import FavorateButton from "../components/FavorateButton";
 import ParentCategory from "../components/ParentCategory";
+import axios from "axios";
 
 const AddColth = () => {
   const [firstCategory, setFirstCategory] = useState('');
   const [secondCategory, setSecondCategory] = useState('');
   const [season, setSeason] = useState([]);
   const [favorite, setFavorite] = useState(false);
-  const [name, setNAme] = useState('');
+  const [name, setName] = useState('');
   const [fd, setFd] = useState();
-  const [data, setData] = useState();
 
-  const handleName = (e) => setNAme(e.target.value);
+  const handleName = (e) => setName(e.target.value);
   const handleFile = (e) => {
     const img = e.target.files[0];
     const formData = new FormData();
     formData.append('img', img);
     setFd(formData);
   }
-
-  const makeData = () => {
-    const d = {
-      formdata : fd,
-      name : name,
-      firstCategory : firstCategory,
-      secondCategory : secondCategory,
-      season : season,
-      favorite : favorite,
+  
+  const postData = () => {
+    const cloth = axios.create({
+      baseURL: 'http://localhost:8000/'
+    })
+    cloth.post('/clothes/add', fd,{params: {
+        name:name, category:firstCategory, subcategory : secondCategory, 
+        filter : season.toString(), favorite : favorite
+      }}).then(function (response){
+      if(response.data===-1) {
+        alert(`옷 전송 실패`);
+      }
+      else {
+      alert(`옷 전송 성공`);
     }
-    setData(d);
+    }).catch(function (error){
+      console.log(`옷 전송 에러 발생 : ${error}`);
+    })
   }
-  useEffect(() => {
-    setData(data);
-  },[data]);
+
   return(
     <>
     <div style={{textAlign:'center'}}>
@@ -70,7 +75,7 @@ const AddColth = () => {
 
     {/*등록하기 버튼*/}
     <Button value={'등록하기'} height={'30px'} margin={'0 5px 0 0'}
-    onClick={() => {makeData();}}/>
+    onClick={() => {postData();}}/>
     {/*취소하기 버튼*/}
     <Link to='/main'>
     <Button value={'취소하기'} height={'30px'}/></Link>
