@@ -8,8 +8,11 @@ import SeasonButton from "../components/SeasonButton";
 import FavorateButton from "../components/FavorateButton";
 import ParentCategory from "../components/ParentCategory";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const AddColth = () => {
+  const userId = useSelector((state) => state.id)
+
   const [firstCategory, setFirstCategory] = useState('');
   const [secondCategory, setSecondCategory] = useState('');
   const [season, setSeason] = useState([]);
@@ -31,7 +34,7 @@ const AddColth = () => {
     })
     cloth.post('/clothes/add', fd,{params: {
         name:name, category:firstCategory, subcategory : secondCategory, 
-        filter : season.toString(), favorite : favorite
+        filter : season.toString(), favorite : favorite, id:userId
       }}).then(function (response){
       if(response.data===-1) {
         alert(`옷 전송 실패`);
