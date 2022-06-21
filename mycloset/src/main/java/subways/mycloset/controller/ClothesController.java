@@ -18,7 +18,7 @@ public class ClothesController {
     ClothesServiceImpl clothesService;
 
     @RequestMapping(value="/add", method = {RequestMethod.GET, RequestMethod.POST})
-    public int addClothes(Clothes clothes, HttpServletRequest req, @RequestParam(value = "img") MultipartFile file){ return clothesService.addClothes(clothes, req, file); }
+    public int addClothes(HttpServletRequest req, @RequestParam(value = "img") MultipartFile file, Clothes clothes){ return clothesService.addClothes(req, file, clothes); }
 //    public int addClothes(Clothes clothes){ return clothesService.addClothes(clothes); }
     @GetMapping("/update")
     public int updateClothes(Clothes clothes){ return clothesService.updateClothes(clothes); }

@@ -21,7 +21,7 @@
     </insert>
 
     <update id="updateUserInfo" parameterType="subways.mycloset.dto.User">
-        UPDATE user SET id=#{id}, password=#{password}, name=#{name}, email=#{email}
+        UPDATE user SET password=#{password}, name=#{name}, email=#{email}
         where id=#{id};
     </update>
 

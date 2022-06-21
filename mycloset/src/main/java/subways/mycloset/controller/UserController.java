@@ -30,8 +30,8 @@ public class UserController {
     public User register(User user){ return userService.addUser(user); }
     @RequestMapping(value="/user-update", method = {RequestMethod.GET, RequestMethod.POST})
     public User update(HttpServletRequest req, User user){ return userService.updateUser(req, user); }
-    @GetMapping("/user-delete")
-    public int delete(HttpServletRequest req){ return userService.deleteUser(req); }
+    @RequestMapping(value="/user-delete", method = {RequestMethod.GET, RequestMethod.POST})
+    public int delete(HttpServletRequest req, String id){ return userService.deleteUser(req, id); }
 
     @RequestMapping(value="/user-findid", method = {RequestMethod.GET, RequestMethod.POST})
     public String findId(String name, String email){
@@ -41,6 +41,7 @@ public class UserController {
     @RequestMapping(value="/user-findpw", method = {RequestMethod.GET, RequestMethod.POST})
     public String findPassword(String id, String email){
         String password = userService.findPassword(id, email);
+        System.out.println(password);
 
         return password;
     }

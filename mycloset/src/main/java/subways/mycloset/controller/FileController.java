@@ -23,13 +23,12 @@ public class FileController {
     @Autowired
     FilesDao filesDao;
 
-    @GetMapping("/test")
-    public String downFile(Model model){
-        Files file = filesDao.findfile(1);
-        System.out.println(file.getFileName());
-        model.addAttribute("file", file);
-
-        return "file/image";
+    //파일 경로 보내기 테스트
+    @RequestMapping(value="/fileprint", method = {RequestMethod.GET, RequestMethod.POST})
+    public String downFile(String name){
+        System.out.println(name);
+        String t = "C:\\test\\SEP\\mycloset\\src\\main\\resources\\images\\8c1DDVTFZIYvxtonmePKGn8tt29pBcx6.jpg";
+        return t;
     }
 
     @RequestMapping(value="/fileupload", method = {RequestMethod.GET, RequestMethod.POST})

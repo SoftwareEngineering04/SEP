@@ -15,7 +15,7 @@ import java.util.List;
 @Mapper
 public interface ClothesDao {
 
-    int add(Clothes clothes, HttpServletRequest req, @RequestParam(value = "img") MultipartFile file);
+    int add(Clothes clothes);
 //    int add(Clothes clothes);
     int updateClothes(Clothes clothes);
     int delete(int cId);

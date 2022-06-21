@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface ClothesService {
 
-    int addClothes(Clothes clothes, HttpServletRequest req, MultipartFile file);
+    int addClothes(HttpServletRequest req, MultipartFile file, Clothes clothes);
 //    int addClothes(Clothes clothes);
     int deleteClothese(int cId);
     int updateClothes(Clothes clothes);

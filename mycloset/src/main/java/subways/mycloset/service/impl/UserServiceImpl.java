@@ -60,21 +60,14 @@ public class UserServiceImpl implements UserService {
     }
 
     public User updateUser(HttpServletRequest req, User user){
-        HttpSession session = req.getSession();
-
-        String id = (String) session.getAttribute("sessionId");
-
-        user.setId(id);
+        System.out.println(user);
 
         userDao.updateUserInfo(user);
 
         return user;
     }
 
-    public int deleteUser(HttpServletRequest req){
-        HttpSession session = req.getSession();
-
-        String id = (String) session.getAttribute("sessionId");
+    public int deleteUser(HttpServletRequest req, String id){
         //-test-
         System.out.println(id);
 

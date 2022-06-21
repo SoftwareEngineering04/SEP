@@ -30,7 +30,7 @@ public class ClothesServiceImpl implements ClothesService {
     @Autowired
     FilesDao filesDao;
 
-    public int addClothes(Clothes clothes, HttpServletRequest req, @RequestParam(value = "img") MultipartFile file){
+    public int addClothes(HttpServletRequest req, @RequestParam(value = "img") MultipartFile file, Clothes clothes){
 //    public int addClothes(Clothes clothes){
 
         Files files = new Files();
@@ -55,8 +55,8 @@ public class ClothesServiceImpl implements ClothesService {
             System.out.println("error");
         }
 
-        files.setFId(4);
-        files.setCId(4);
+        files.setFId(1);
+        files.setCId(1);
         files.setFileName(destinationFileName);
         files.setFileOriName(sourceFileName);
         files.setFileUrl(fileUrl);
@@ -80,8 +80,10 @@ public class ClothesServiceImpl implements ClothesService {
             }
         }
         clothes.setCId(++cid);  // 찾은 cid에서 +1 증가시킨 cid 할당
+        clothes.setId("iddd");
+        clothes.setPhoto(fileUrl);
+        clothesDao.add(clothes);
         filesDao.fileUpload(files);
-        clothesDao.add(clothes, req, file);
         //clothesDao.add(clothes);
 
         return 0;

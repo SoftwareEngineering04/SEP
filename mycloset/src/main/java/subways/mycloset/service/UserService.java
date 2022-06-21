@@ -14,7 +14,7 @@ public interface UserService {
 
     User addUser(User user);
     User updateUser(HttpServletRequest req, User user);
-    int deleteUser(HttpServletRequest req);
+    int deleteUser(HttpServletRequest req, String id);
 
     String findId(String name, String email);
 
