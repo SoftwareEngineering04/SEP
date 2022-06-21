@@ -4,8 +4,8 @@
 <mapper namespace="subways.mycloset.dao.ClothesDao">
     <insert id="add" parameterType="subways.mycloset.dto.Clothes">
         INSERT INTO clothes
-            (cID, name, category, subcategory, filter, photo, isFavorite, id)
-        VALUES(#{cId},#{name},#{category}, #{subcategory}, #{filter},#{photo}, #{isFavorite}, #{id})
+            (cID, name, category, subcategory, photo, isFavorite, id)
+        VALUES(#{cId},#{name},#{category}, #{subcategory}, #{photo}, #{isFavorite}, #{id})
     </insert>
 
     <delete id="delete" parameterType="Integer">
@@ -13,7 +13,7 @@
     </delete>
 
     <update id="updateClothes" parameterType="subways.mycloset.dto.Clothes">
-        UPDATE Clothes SET cId=#{cId}, name=#{name}, category=#{category}, subcategory=#{subcategory}, filter=#{filter}, photo=#{photo}, isFavorite=#{isFavorite}
+        UPDATE Clothes SET cId=#{cId}, name=#{name}, category=#{category}, subcategory=#{subcategory}, photo=#{photo}, isFavorite=#{isFavorite}
         where cId=#{cId};
     </update>
 
@@ -27,6 +27,10 @@
 
     <select id="getClothesByCategory" parameterType="String" resultType="Clothes">
         SELECT * FROM clothes where category=#{category} AND subcategory=#{subcategory} AND id=#{id};
+    </select>
+
+    <select id="test" parameterType="subways.mycloset.dto.Filter" resultType="Clothes">
+        SELECT * FROM clothes a, filter b where a.cId = b.sId AND b.spring=#{spring} AND b.summer=#{summer} AND b.fall=#{fall} AND b.winter=#{winter};
     </select>
 
     <select id="getFavorites" parameterType="String" resultType="Clothes">

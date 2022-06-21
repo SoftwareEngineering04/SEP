@@ -15,7 +15,7 @@ public interface ClothesService {
     int updateClothes(Clothes clothes);
     Clothes getClothesBycId(int cId);
     List<Clothes> getClothesByName(String name, String id);
-    List<Clothes> getClothesByCategory(String category, String subcategory, String id);
+    List<Clothes> getClothesByCategory(Clothes clothes);
     List<Clothes> getFavorites(String id);
     List<Clothes> getAllClothes(String id);
     List<Clothes> getAllClothesCount();
