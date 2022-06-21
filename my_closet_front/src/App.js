@@ -14,11 +14,13 @@ import Favorite from './pages/Favorite';
 import FileUploadTest from './pages/FileUploadTest';
 import TestImage from './pages/TestImage';
 import AboutCloth from './pages/AboutCloth';
+import ChangeCloth from './pages/ChangeCloth';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/changecloth' element={<ChangeCloth />} />
         <Route path='/aboutcloth' element={<AboutCloth />} />
         <Route path='/testimage' element={<TestImage />} />
         <Route path='/filetest' element={<FileUploadTest />} />

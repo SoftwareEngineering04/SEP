@@ -29,6 +29,7 @@ const ClothInfo = (props) => {
     
     </div>
   );
+
 }
 
 export default ClothInfo;

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import subways.mycloset.dto.Clothes;
+import subways.mycloset.dto.Filter;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
@@ -30,4 +31,7 @@ public interface ClothesDao {
     List<Clothes> getAllClothesCount();
 
     //ArrayList<Clothes> getClothesByTag();
+
+//    Filter test(Filter filter);
+    List<Clothes> test(Filter filter);
 }

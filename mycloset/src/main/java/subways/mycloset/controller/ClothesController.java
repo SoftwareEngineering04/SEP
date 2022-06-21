@@ -27,8 +27,8 @@ public class ClothesController {
 
 
     //인자 세션아이디로 바꾸기
-    @GetMapping("/byCategory")
-    public List<Clothes> getClothesByCategory(String category, String subcategory, String id){ return clothesService.getClothesByCategory(category, subcategory, id); }
+    @RequestMapping(value="/byCategory", method = {RequestMethod.GET, RequestMethod.POST})
+    public List<Clothes> getClothesByCategory(Clothes clothes){ return clothesService.getClothesByCategory(clothes); }
     @GetMapping("/bycId")
     public Clothes getClothesInfo(int cId){ return clothesService.getClothesBycId(cId); }
 
@@ -42,4 +42,6 @@ public class ClothesController {
 
     @GetMapping("/all")
     public List<Clothes> getAllClothes(String id) { return clothesService.getAllClothes(id); }
+
+
 }

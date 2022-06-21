@@ -1,10 +1,12 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
-import {useLocation, useNavigate} from 'react-router-dom';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import DeleteCloth from "../components/DeleteCloth";
 
 const AboutCloth = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const {url} = location.state;
   const {name} = location.state;
   const {category} = location.state;
@@ -29,10 +31,16 @@ const AboutCloth = (props) => {
     onClick={() => navigate(-1)}/>
 
     <hr style={{border:'none'}}></hr>
-    <Button value={'삭제하기'} width={'100px'} height={'25px'}
-    margin={'0 5px 0 0'}/>
 
-    <Button value={'수정하기'} width={'100px'} height={'25px'}/>
+    <Link to='/changecloth'
+    stat={{
+
+    }}>
+    <Button value={'수정하기'} width={'100px'} height={'25px'}
+    margin={'0 5px 0 0'}/>
+    </Link>
+
+    <DeleteCloth value={'삭제하기'} name={name}/>
     </div>
     </>
   );

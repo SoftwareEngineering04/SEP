@@ -10,7 +10,7 @@ import ClothInfo from "../components/ClothInfo";
 
 const ClothList = () => {
   const [clothList, setClothList] = useState([]);
-  const location = useLocation(); 
+  const location = useLocation();
   const [firstCategory, setFirstCategory] = useState();
   const [secondCategory, setSecondCategory] = useState('전체');
   const [season, setSeason] = useState();
@@ -28,6 +28,8 @@ const ClothList = () => {
     cloth.post('/clothes/byCategory', null,{params: {
         category: firstCategory.toString(), 
         subcategory: secondCategory.toString(), 
+        category: firstCategory.toString(), 
+        subcategory: secondCategory.toString(),
         filter:season, id:userId
       }}).then(function (response){
       console.log(response.data);
@@ -36,7 +38,7 @@ const ClothList = () => {
       console.log(`에러 발생 : ${error}`);
     })
   }
-  
+
   return(
     <>
     <Header />

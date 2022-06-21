@@ -25,6 +25,8 @@ class MyclosetApplicationTests {
 	UserService userService;
 	@Autowired
 	ClothesService clothesService;
+	@Autowired
+	ClothesDao clothesDao;
 
 
 	@Test
@@ -43,6 +45,18 @@ class MyclosetApplicationTests {
 		userService.addUser(user1);
 	}
 
+	@Test
+	public void test(){
+
+		Filter filter = new Filter();
+		filter.setSpring(false);
+		filter.setSummer(true);
+		filter.setFall(true);
+		filter.setWinter(false);
+//		Filter filter1 = clothesDao.test(filter);
+		List<Clothes> clothes = clothesDao.test(filter);
+		System.out.println("clothes = " + clothes);
+	}
 //	@Test
 //	public void addClothes(){
 //		Clothes clothes = new Clothes();
