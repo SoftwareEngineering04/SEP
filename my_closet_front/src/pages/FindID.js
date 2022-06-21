@@ -45,14 +45,16 @@ const FindID = () => {
     placeholder={'이메일'} onChange={emailHandler}/>
 
     <Button value={'찾기'} display={'block'} 
-    margin={'10px auto'} height={'25px'} onClick={getId} />
+    margin={'10px auto'} width={'100px'} height={'25px'} onClick={getId} />
 
     <p>조회된 아이디 : <b>{id}</b></p>
 
     <Link to='/login'>
-    <Button value={'로그인하기'} margin={'5px'}/></Link>
+    <Button value={'로그인하기'} margin={'5px'}
+    width={'100px'} height={'25px'}/></Link>
     <Link to='/'>
-    <Button value={'취소'} /></Link>
+    <Button value={'취소'} 
+    width={'100px'} height={'25px'}/></Link>
     </div>
     </>
   )

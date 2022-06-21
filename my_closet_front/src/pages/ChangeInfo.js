@@ -12,7 +12,6 @@ const ChangeInfo = () => {
   const userName = useSelector((state) => state.name);
   const userId = useSelector((state) => state.id);
   const userEmail = useSelector((state) => state.email);
-  const userPw = useSelector((state) => state.password);
 
   const [newName, setNewName] = useState('');
   const [newPw, setNewPw] = useState('');

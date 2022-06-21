@@ -23,7 +23,6 @@ const ClothInfo = (props) => {
     style={{width:'100px', height:'100px'}} /> 
     <p>이름 : {props.name}</p>
     <p>카테고리 : {props.category} - {props.subcategory}</p>
-    <p>cid : {props.cid}</p>
     
     <Button value={'상세보기'} width={'70px'} height={'20px'}
     onClick={moveAbout}/>

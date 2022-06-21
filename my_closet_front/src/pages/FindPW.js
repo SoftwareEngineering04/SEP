@@ -41,14 +41,16 @@ const FindPW = () => {
     <Input type={'email'} display={'block'} margin={'10px auto'}
     placeholder={'이메일'} onChange={emailHandler}/>
     
-    <Button value={'찾기'} height={'25px'} onClick={getPw}/>
+    <Button value={'찾기'} width={'100px'} height={'25px'} onClick={getPw}/>
 
     <p>조회된 비밀번호 : <b>{pw}</b></p> 
 
     <Link to='/login'>
-    <Button value={'로그인하기'} margin={'5px'}/></Link>
+    <Button value={'로그인하기'} margin={'5px'}
+    width={'100px'} height={'25px'}/></Link>
     <Link to='/'>
-    <Button value={'취소'} /></Link>
+    <Button value={'취소'} 
+    width={'100px'} height={'25px'}/></Link>
     </div>
     </>
   );

@@ -9,11 +9,6 @@ const AboutCloth = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const {url} = location.state;
-  const {name} = location.state;
-  const {category} = location.state;
-  const {subcategory} = location.state;
-  const {filter} = location.state;
   const {cid} = location.state;
 
   const [clothInfo, setClothInfo] = useState({});
@@ -49,23 +44,12 @@ const AboutCloth = (props) => {
     {/*<p>즐겨찾기 | {props.isFavorite ? '★' : '☆'}</p>*/}
     <p>카테고리 | {clothInfo.category} - {clothInfo.subcategory}</p>
     <p>계절 | {clothInfo.filter.toString()}</p>
+    <p>즐겨찾기 | </p>
 
     <Button value={'확인'} width={'200px'} height={'25px'}
     onClick={() => navigate(-1)}/>
 
     <hr style={{border:'none'}}></hr>
-
-    <Link to='/changecloth'
-    stat={{
-      url:clothInfo.photo,
-      name:clothInfo.name,
-      category:clothInfo.category,
-      subcategory:clothInfo.subcategory,
-      filter:clothInfo.filter
-    }}>
-    <Button value={'수정하기'} width={'100px'} height={'25px'}
-    margin={'0 5px 0 0'}/>
-    </Link>
 
     <DeleteCloth value={'삭제하기'} cid={cid}/>
     </div>
