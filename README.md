@@ -8,3 +8,6 @@
 - 201810969 컴퓨터과학과 이연경
 - 201810984 컴퓨터과학과 이화영
 ---
+## 협업 도구
+
+**Trello** **>>** [https://trello.com/b/rhjVWKnh/%EC%86%8C%EA%B3%B5](https://trello.com/b/rhjVWKnh/%EC%86%8C%EA%B3%B5)
