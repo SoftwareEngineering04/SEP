@@ -11,4 +11,7 @@ public class Filter{
     private boolean summer;
     private boolean fall;
     private boolean winter;
+    private String category;
+    private String subCategory;
+    private String id;
 }

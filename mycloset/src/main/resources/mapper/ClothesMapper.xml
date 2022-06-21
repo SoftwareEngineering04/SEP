@@ -25,13 +25,17 @@
         SELECT * FROM clothes where name like CONCAT('%', #{name}, '%') AND id=#{id};
     </select>
 
-    <select id="getClothesByCategory" parameterType="String" resultType="Clothes">
-        SELECT * FROM clothes where category=#{category} AND subcategory=#{subcategory} AND id=#{id};
+    <!--    <select id="getClothesByCategory" parameterType="String" resultType="Clothes">-->
+    <!--        SELECT * FROM clothes where category=#{category} AND subCategory=#{subCategory} AND id=#{id};-->
+    <!--    </select>-->
+
+    <select id="getClothesByCategory" parameterType="subways.mycloset.dto.Filter" resultType="Clothes">
+        SELECT * FROM clothes a, filter b where a.cId = b.sId AND a.category=#{category} AND a.subcategory=#{subCategory} AND b.spring=#{spring} AND b.summer=#{summer} AND b.fall=#{fall} AND b.winter=#{winter};
     </select>
 
-    <select id="test" parameterType="subways.mycloset.dto.Filter" resultType="Clothes">
-        SELECT * FROM clothes a, filter b where a.cId = b.sId AND b.spring=#{spring} AND b.summer=#{summer} AND b.fall=#{fall} AND b.winter=#{winter};
-    </select>
+    <!--    <select id="test" parameterType="map" resultType="Clothes">-->
+    <!--        SELECT * FROM clothes a, filter b where a.cId = b.sId AND b.spring=#{spring} AND b.summer=#{summer} AND b.fall=#{fall} AND b.winter=#{winter};-->
+    <!--    </select>-->
 
     <select id="getFavorites" parameterType="String" resultType="Clothes">
         SELECT * FROM clothes where isFavorite=true AND id=#{id};

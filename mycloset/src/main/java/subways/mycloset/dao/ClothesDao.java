@@ -17,12 +17,13 @@ import java.util.List;
 public interface ClothesDao {
 
     int add(Clothes clothes);
-//    int add(Clothes clothes);
+    //    int add(Clothes clothes);
     int updateClothes(Clothes clothes);
     int delete(int cId);
     Clothes getClothesBycId(int cId);
     List<Clothes> getClothesByName(@Param("name") String name, @Param("id") String id);
-    List<Clothes> getClothesByCategory(@Param("category") String category, @Param("subcategory") String subcategory, @Param("id") String id);
+    //    List<Clothes> getClothesByCategory(@Param("category") String category, @Param("subcategory") String subcategory, @Param("id") String id);
+    List<Clothes> getClothesByCategory(Filter filter);
     List<Clothes> getClothesBySeason();
     List<Clothes> getFavorites(String id);
 
@@ -32,6 +33,7 @@ public interface ClothesDao {
 
     //ArrayList<Clothes> getClothesByTag();
 
-//    Filter test(Filter filter);
+    //    Filter test(Filter filter);
     List<Clothes> test(Filter filter);
+
 }

@@ -105,7 +105,7 @@ public class ClothesServiceImpl implements ClothesService {
                 filter.setWinter(true);
             }
 
-           // System.out.println("(String) clothes.getFilter()[0] = " + (String) clothes.getFilter()[i]);
+            // System.out.println("(String) clothes.getFilter()[0] = " + (String) clothes.getFilter()[i]);
             i++;
         }
         System.out.println("filter = " + filter);
@@ -150,9 +150,41 @@ public class ClothesServiceImpl implements ClothesService {
         return clothes;
     }
 
+//    public List<Clothes> getClothesByCategory(Clothes clothes){
+//        List<Clothes> lst = clothesDao.getClothesByCategory(clothes.getCategory(), clothes.getSubcategory(), clothes.getId());
+//        //filterDao.getFilter(clothes.getCId());
+//        return lst;
+//    }
+
     public List<Clothes> getClothesByCategory(Clothes clothes){
-        List<Clothes> lst = clothesDao.getClothesByCategory(clothes.getCategory(), clothes.getSubcategory(), clothes.getId());
+        Filter filter = new Filter();
+        int i=0;
+        String season ;
+        //String[] a = clothes.getFilter();
+        while (i<clothes.getFilter().length){
+            season = (String) clothes.getFilter()[i];
+            if (season.equals("봄")){
+                filter.setSpring(true);
+            } else if (season.equals("여름")) {
+                filter.setSummer(true);
+            } else if (season.equals("가을")) {
+                filter.setFall(true);
+            }else if (season.equals("겨울")) {
+                filter.setWinter(true);
+            }
+
+            // System.out.println("(String) clothes.getFilter()[0] = " + (String) clothes.getFilter()[i]);
+            i++;
+        }
+        filter.setCategory(clothes.getCategory());
+        filter.setSubCategory(clothes.getSubcategory());
+        filter.setId(clothes.getId());
+        System.out.println("filter = " + filter);
+
+        List<Clothes> lst = clothesDao.getClothesByCategory(filter);
+        System.out.println("lst = " + lst);
         //filterDao.getFilter(clothes.getCId());
+        //clothes.setFilter(a);
         return lst;
     }
 
