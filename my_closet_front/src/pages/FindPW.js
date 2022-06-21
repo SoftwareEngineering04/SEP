@@ -19,7 +19,7 @@ const FindPW = () => {
     const pw = axios.create({
       baseURL : 'http://localhost:8000/'
     })
-    pw.post('/api/findpw',null, {params: {
+    pw.post('/api/user-findpw',null, {params: {
       id : id, email : email
     }}).then(function(response) {
       setPw(response.data);

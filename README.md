@@ -4,11 +4,11 @@
 **조 구성원**
 ---
 
-- 201810984 컴퓨터과학과 이화영(팀장)
-- 201810902 컴퓨터과학과 김경아
-- 201810938 컴퓨터과학과 박수진
-- 201810948 컴퓨터과학과 송민우
-- 201810969 컴퓨터과학과 이연경
+- 201810984 컴퓨터과학과 이화영 **(팀장)** <img src="https://img.shields.io/badge/Spring-E8E8E8?style=flat-square&logo=spring&logoColor=#6DB33F" />
+- 201810902 컴퓨터과학과 김경아 <img src="https://img.shields.io/badge/React-41BADB?style=flat-square&logo=react&logoColor=#61DAFB" />
+- 201810938 컴퓨터과학과 박수진 <img src="https://img.shields.io/badge/Spring-E8E8E8?style=flat-square&logo=spring&logoColor=#6DB33F" />
+- 201810948 컴퓨터과학과 송민우 <img src="https://img.shields.io/badge/React-41BADB?style=flat-square&logo=react&logoColor=#61DAFB" />
+- 201810969 컴퓨터과학과 이연경 <img src="https://img.shields.io/badge/Spring-E8E8E8?style=flat-square&logo=spring&logoColor=#6DB33F" />
 
 ---
 ## 💬협업 도구
