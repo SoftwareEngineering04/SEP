@@ -11,6 +11,6 @@
 - 201810969 컴퓨터과학과 이연경 <img src="https://img.shields.io/badge/Spring-E8E8E8?style=flat-square&logo=spring&logoColor=#6DB33F" />
 
 ---
-## 💬협업 도구
+## 💌협업 도구
 
 **Trello** **>>** [https://trello.com/b/rhjVWKnh/%EC%86%8C%EA%B3%B5](https://trello.com/b/rhjVWKnh/%EC%86%8C%EA%B3%B5)

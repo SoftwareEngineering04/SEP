@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="subways.mycloset.dao.FilterDao">
+    <insert id="addFilter" parameterType="subways.mycloset.dto.Filter">
+        INSERT INTO filter
+            (sId, spring, summer, fall, winter)
+        VALUES(#{sId},#{spring},#{summer}, #{fall}, #{winter})
+    </insert>
+
+    <select id="findfile" parameterType="Integer" resultType="Files">
+        SELECT * FROM files where fId=#{fId};
+    </select>
+
+    <select id="getFilter" parameterType="String" resultType="Filter">
+        SELECT * FROM filter where sId=#{cId};
+    </select>
+</mapper>
