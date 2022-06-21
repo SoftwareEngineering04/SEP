@@ -21,7 +21,8 @@ public interface ClothesDao {
     int updateClothes(Clothes clothes);
     int delete(int cId);
     Clothes getClothesBycId(int cId);
-    List<Clothes> getClothesByName(@Param("name") String name, @Param("id") String id);
+//    List<Clothes> getClothesByName(@Param("name") String name, @Param("id") String id);
+    List<Clothes> getClothesByName(String name, String id);
     //    List<Clothes> getClothesByCategory(@Param("category") String category, @Param("subcategory") String subcategory, @Param("id") String id);
     List<Clothes> getClothesByCategory(Filter filter);
     List<Clothes> getClothesBySeason();

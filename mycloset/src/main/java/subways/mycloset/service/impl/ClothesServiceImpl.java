@@ -140,7 +140,25 @@ public class ClothesServiceImpl implements ClothesService {
     }
 
     public Clothes getClothesBycId(int cId){
+//        System.out.println(cId instanceof Integer);
+        Filter filter = filterDao.getFilter(cId);
+
         Clothes clothes = clothesDao.getClothesBycId(cId);
+        String[] a = new String[4];
+        int i=0;
+        if (filter.isSpring()) {
+            a[i++] = "봄";
+        }
+        if (filter.isSummer()) {
+            a[i++] = "여름";
+        }
+        if (filter.isFall()) {
+            a[i++] = "가을";
+        }
+        if (filter.isWinter()) {
+            a[i++] = "겨울";
+        }
+        clothes.setFilter(a);
         return clothes;
     }
 

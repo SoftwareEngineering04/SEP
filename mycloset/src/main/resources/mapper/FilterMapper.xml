@@ -12,7 +12,7 @@
         SELECT * FROM files where fId=#{fId};
     </select>
 
-    <select id="getFilter" parameterType="String" resultType="Filter">
+    <select id="getFilter" parameterType="Integer" resultType="Filter">
         SELECT * FROM filter where sId=#{cId};
     </select>
 </mapper>
