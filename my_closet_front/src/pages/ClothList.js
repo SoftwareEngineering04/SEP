@@ -4,12 +4,13 @@ import BottomMenu from "../components/BottomMenu";
 import {useLocation } from "react-router-dom";
 import ParentCategory from "../components/ParentCategory";
 import Button from "../components/Button";
+import axios from "axios";
 
 const ClothList = () => {
   const [clothList, setClothList] = useState([]);
   const location = useLocation(); 
   const [firstCategory, setFirstCategory] = useState();
-  const [secondCategory, setSecondCategory] = useState();
+  const [secondCategory, setSecondCategory] = useState('전체');
   const [season, setSeason] = useState();
   
   useEffect(() => {
@@ -17,6 +18,18 @@ const ClothList = () => {
     setSeason(location.state.season); 
   },[firstCategory, location.state.category, location.state.season, season]);
 
+  const show = () => {
+    const cloth = axios.create({
+      baseURL: 'http://localhost:8000/'
+    })
+    cloth.post('/api/???', null,{params: {
+        category: firstCategory, subcategory: secondCategory, filter:season
+      }}).then(function (response){
+      console.log(response.data);
+    }).catch(function (error){
+      console.log(`에러 발생 : ${error}`);
+    })
+  }
   
   return(
     <>
@@ -33,7 +46,8 @@ const ClothList = () => {
     </div>
     </div>
     <div>
-      <p>{'의류 목록 출력해야함...'}</p>
+      <p>{'하위 카테고리까지 선택 후 검색을 눌러주세요'}</p>
+      <Button onClick={show} value={'검색'} width={'200px'} height={'30px'}/>
     {<ul>
       {clothList.map((cloth) => (
         <li>{cloth}</li>

@@ -3,12 +3,23 @@ import BottomMenu from "../components/BottomMenu";
 import Button from "../components/Button";
 import Header from "../components/Header";
 import Input from "../components/Input";
+import axios from "axios";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState('');
   const handleValue = (e) => setSearchValue(e.target.value);
+
   const showClothes = () => {
-    //searchValue를 이용해서 get 방식으로 가져와야함
+    const cloth = axios.create({
+      baseURL: 'http://localhost:8000/'
+    })
+    cloth.post('/api/???', null,{params: {
+        name:searchValue,
+      }}).then(function (response){
+        console.log(response.data);
+    }).catch(function (error){
+      console.log(`에러 발생 : ${error}`);
+    })
   }
   return(
     <>

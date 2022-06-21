@@ -1,10 +1,20 @@
 import { useEffect } from "react";
 import BottomMenu from "../components/BottomMenu";
 import Header from "../components/Header";
+import axios from "axios";
 
 const Favorite = () => {
   const getFavorate = () => {
-    //get 방식으로 즐겨찾기 목록 가져오기
+    const fav = axios.create({
+      baseURL: 'http://localhost:8000/'
+    })
+    fav.post('/api/???', null,{params: {
+        favorite : true,
+      }}).then(function (response){
+        console.log(response.data);
+    }).catch(function (error){
+      console.log(`에러 발생 : ${error}`);
+    })
   }
   useEffect(() => {
     getFavorate();
