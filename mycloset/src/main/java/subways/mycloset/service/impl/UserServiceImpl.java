@@ -86,10 +86,12 @@ public class UserServiceImpl implements UserService {
     public String findId(String name, String email){
         User user = userDao.getUserInfoByEmail(email);
 
+        System.out.println(user);
+
         if(user == null)
             return null;
 
-        if( name == user.getName())
+        if( name.equals(user.getName()))
             return user.getId();
         else
             return null;
@@ -102,7 +104,7 @@ public class UserServiceImpl implements UserService {
         if(user == null)
             return null;
 
-        if(email == user.getEmail())
+        if(email.equals(user.getEmail()))
             return user.getPassword();
         else
             return null;
