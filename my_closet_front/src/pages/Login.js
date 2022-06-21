@@ -107,6 +107,7 @@ const Login = () => {
       width={'200px'} height={'30px'} margin={'0 0 7px 0'}/>
       </Link>
     </div>
+    
     <div style={{margin:'5px'}}>
       {/*뒤로가기 버튼*/}
       <Link to='/'>

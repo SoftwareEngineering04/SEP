@@ -37,27 +37,30 @@ const AddColth = () => {
         filter : season.toString(), favorite : favorite, id:userId
       }}).then(function (response){
       if(response.data===-1) {
-        alert(`옷 전송 실패`);
+        alert(`옷 등록 실패`);
       }
       else {
-      alert(`옷 전송 성공`);
+      alert(`옷 등록 성공`);
     }
     }).catch(function (error){
-      console.log(`옷 전송 에러 발생 : ${error}`);
+      console.log(`옷 등록 에러 발생 : ${error}`);
     })
   }
-
   return(
     <>
     <div style={{textAlign:'center'}}>
     <Header />
     <p>{'의류 추가하기'}</p>
 
-    {/*이미지(파일) 업로드*/}
-    <Input type='file' width={'150px'} height={'150px'} 
-    onChange={handleFile}/>
+    <div style={{display:'inline'}}>
 
+    {/*이미지(파일) 업로드*/}
+    <Input type='file' width={'200px'} height={'50px'} display={'block'}
+    onChange={handleFile} margin={'0px auto'}/>
+
+    </div>
     {/*즐겨찾기 버튼*/}
+    <p style={{display:'inline'}}>즐겨찾기 : </p>
     <FavorateButton setFavorite={setFavorite}/>
 
     {/*카테고리 컴포넌트*/}

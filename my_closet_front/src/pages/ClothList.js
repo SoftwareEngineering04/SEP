@@ -5,6 +5,8 @@ import {useLocation } from "react-router-dom";
 import ParentCategory from "../components/ParentCategory";
 import Button from "../components/Button";
 import axios from "axios";
+import { useSelector } from "react-redux";
+import ClothInfo from "../components/ClothInfo";
 
 const ClothList = () => {
   const [clothList, setClothList] = useState([]);
@@ -12,20 +14,24 @@ const ClothList = () => {
   const [firstCategory, setFirstCategory] = useState();
   const [secondCategory, setSecondCategory] = useState('전체');
   const [season, setSeason] = useState();
-  
+  const userId = useSelector((state) => state.id);
+
   useEffect(() => {
     setFirstCategory(location.state.category);
     setSeason(location.state.season); 
-  },[firstCategory, location.state.category, location.state.season, season]);
+  },[]);
 
   const show = () => {
     const cloth = axios.create({
       baseURL: 'http://localhost:8000/'
     })
-    cloth.post('/api/???', null,{params: {
-        category: firstCategory, subcategory: secondCategory, filter:season
+    cloth.post('/clothes/byCategory', null,{params: {
+        category: firstCategory.toString(), 
+        subcategory: secondCategory.toString(), 
+        filter:season, id:userId
       }}).then(function (response){
       console.log(response.data);
+      setClothList(response.data);
     }).catch(function (error){
       console.log(`에러 발생 : ${error}`);
     })
@@ -48,12 +54,15 @@ const ClothList = () => {
     <div>
       <p>{'하위 카테고리까지 선택 후 검색을 눌러주세요'}</p>
       <Button onClick={show} value={'검색'} width={'200px'} height={'30px'}/>
-    {<ul>
-      {clothList.map((cloth) => (
-        <li>{cloth}</li>
-        //의류 클릭하면 상세정보로 넘어가게도 해야함
-      ))}  
-    </ul>}
+    </div>
+    {/*옷 보여주자*/}
+    {clothList && clothList.map((obj) => (
+      <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
+       category={obj.category} subcategory={obj.subcategory} 
+       filter={obj.filter}/>
+      ))}
+    <div>
+
     </div>
     </div>
     <BottomMenu />

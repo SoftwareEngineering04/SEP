@@ -12,6 +12,7 @@ const Join = () => {
   const [pw2, setPw2] = useState('');
   const [email, setEmail] = useState('');
   const [pwPass, setPwPass] = useState('none');
+  const [isJoin, setIsJoin] = useState('none');
 
   const handleName = (e) => setName(e.target.value);
   const handleId = (e) => setId(e.target.value);
@@ -40,6 +41,7 @@ const Join = () => {
         }
         else {
         alert(`회원가입 성공`)
+        setIsJoin('');
       }
       }).catch(function (error){
         alert(`에러발생 : ${error}`);
@@ -82,13 +84,19 @@ const Join = () => {
     
 
     <p>회원정보를 등록하시겠습니까?</p>
-    {/*예 버튼을 누르면 checkPw 하고 서버로 보낼 data 만들고 login 화면으로
-    이동하도록 구현해야함 (지금은 Link 없앰)*/}
+    <Link to='/login'>
     <Button width={'80px'} height={'30px'} 
     value={'예'} margin={'0 5px 0 0'} onClick={() => {
-    handleJoin();}}/>
+    handleJoin(); checkPw();}}/></Link>
     <Link to='/login'>
     <Button width={'80px'} height={'30px'} value={'아니오'} /></Link>
+    <div style={{display:isJoin}}>
+      <p>회원가입에 성공하였습니다.</p>
+      <Link to={'/login'} style={{textDecoration : 'none'}}>
+      <Button value={'로그인하러가기'} backgroundColor={'skyblue'}
+      width={'200px'} height={'30px'} margin={'0 0 7px 0'}/>
+      </Link>
+    </div>
     </div>
     </>
   );

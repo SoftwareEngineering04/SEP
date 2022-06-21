@@ -11,6 +11,7 @@ const Input = forwardRef((props, ref) => {
     value={props.value}
     readOnly={props.readOnly}
     style={{
+      backgroundImage: props.backgroundImage,
       backgroundColor : "white",
       color : props.color ? props.color : "gray",
       border : "1px solid gray",
