@@ -13,8 +13,8 @@ const DeleteCloth = (props) => {
     const cloth = axios.create({
       baseURL: 'http://localhost:8000/'
     })
-    cloth.post('???', null,{params: {
-        name:props.name
+    cloth.post('/clothes/delete', null,{params: {
+        cId:parseInt(props.cid),
       }}).then(function (response){
       if(response===-1) {
         alert('옷 삭제 실패...');
@@ -44,7 +44,7 @@ const DeleteCloth = (props) => {
           <div className="modal-content">
             <p>정말 옷을 삭제하시겠습니까?</p>
 
-            <Link to={'/clothlist'}>
+            <Link to={'/main'}>
             <button className="close-modal" onClick={() => {
               toggleModal(); deleteCloth(); }}> 네 </button>
             </Link>

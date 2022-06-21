@@ -29,7 +29,7 @@ const ClothList = () => {
     cloth.post('/clothes/byCategory', null,{params: {
         category: firstCategory.toString(), 
         subcategory: secondCategory.toString(), 
-        filter:season, id:userId
+        filter:season.toString(), id:userId
       }}).then(function (response){
       console.log(response.data);
       setClothList(response.data);
@@ -60,7 +60,7 @@ const ClothList = () => {
     {clothList && clothList.map((obj) => (
       <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
        category={obj.category} subcategory={obj.subcategory} 
-       filter={obj.filter}/>
+       filter={season} cid={obj.cid}/>
       ))}
     <div>
 

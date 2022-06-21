@@ -3,8 +3,13 @@ import CategoryButton from "../components/CategoryButton";
 import Header from "../components/Header";
 import Input from "../components/Input";
 import SeasonButton from "../components/SeasonButton";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const ChangeCloth = (props) => {
+  
+
+
   return(
     <>
     <Header />
@@ -14,7 +19,7 @@ const ChangeCloth = (props) => {
 
     <hr style={{border:'none'}}></hr>
     <label>이름</label>
-    <Input type={'text'} placeholder={props.name} 
+    <Input type={'text'} placeholder={'name'} 
     margin={'20px auto'}/>
 
     <hr style={{border:'none'}}></hr>
