@@ -36,6 +36,7 @@ const ChangeCloth = () => {
       baseURL: 'http://localhost:8000/'
     })
     cloth.post('/clothes/update', null,{params: {
+        photo:navUrl,
         name : name,
         category : firstCategory,
         subcategory : secondCategory,
@@ -45,6 +46,7 @@ const ChangeCloth = () => {
       }}).then(function (response){
       console.log(response.data);
       alert('옷 수정이 완료되었습니다')
+      naviagte(-1);
     }).catch(function (error){
       console.log(`에러 발생 : ${error}`);
     })
@@ -62,20 +64,22 @@ const ChangeCloth = () => {
     style={{width:'150px', height:'150px'}}/>
 
     <FavorateButton setFavorite={setFavorite}/>
-
+    
     <hr style={{border:'none'}}></hr>
-    <label>이름</label>
+    <label>{'이름  '}</label>
     <Input type={'text'} placeholder={'새 이름을 입력해주세요'} 
     margin={'20px auto'} onChange={handleName}/>
 
+    <div style={{display:'center', margin:'0px auto'}}>
     <ParentCategory setFirstCategory={setFirstCategory}
     setSecondCategory={setSecondCategory}/>
 
     <SeasonButton width={'70px'} height={'30px'} margin={'5px auto'}
     season={season} setSeason={setSeason}/>
+    </div>
 
     <hr style={{border:'none'}}></hr>
-    <Button value={'변경내용 저장하기'} width={'100px'} 
+    <Button value={'변경내용 저장하기'} width={'150px'} 
     height={'30px'} margin={'0 5px 0 0'}
     onClick={changeClothInfo}/>
 

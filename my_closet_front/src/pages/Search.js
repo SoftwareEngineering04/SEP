@@ -38,7 +38,7 @@ const Search = () => {
     onClick={showClothes}/>
 
     </div>
-    <div style={{width:'400px', textAlign:'center',
+    <div style={{width:'450px', textAlign:'center',
       margin:'5px auto 60px'}}>
         {clothList && clothList.map((obj) => (
           <div style={{display:'inline-block', margin:'5px 7px'}}>
