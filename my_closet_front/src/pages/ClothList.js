@@ -42,29 +42,31 @@ const ClothList = () => {
     <>
     <Header />
     <div style={{textAlign:'center'}}>
-    <div style={{margin:'10px auto'}}>
-    <ParentCategory category={firstCategory} season={season} disabled={true}
-    setFirstCategory={setFirstCategory} setSecondCategory={setSecondCategory}/>
-    <div style={{display:'block', margin:'0 auto'}}>
-    {season && season.map((val) => (
-      <Button value={val} backgroundColor='skyblue'
-      margin={'5px 5px 0 0'} width={'50px'} height={'30px'} cursor={'default'}/>
-    ))}
-    </div>
-    </div>
+      <div style={{margin:'10px auto'}}>
+        <ParentCategory category={firstCategory} season={season} disabled={true}
+        setFirstCategory={setFirstCategory} setSecondCategory={setSecondCategory}/>
+        <div style={{display:'block', margin:'0 auto'}}>
+          {season && season.map((val) => (
+            <Button value={val} backgroundColor='skyblue'
+            margin={'5px 5px 0 0'} width={'50px'} height={'30px'} cursor={'default'}/>
+          ))}
+        </div>
+      </div>
     <div>
       <p>{'하위 카테고리까지 선택 후 검색을 눌러주세요'}</p>
       <Button onClick={show} value={'검색'} width={'200px'} height={'30px'}/>
     </div>
-    {/*옷 보여주자*/}
-    {clothList && clothList.map((obj) => (
-      <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
-       category={obj.category} subcategory={obj.subcategory} 
-       filter={season} cid={obj.cid}/>
-      ))}
-    <div>
-
-    </div>
+        {/*옷 보여주자*/}
+      <div style={{width:'400px', textAlign:'center',
+      margin:'5px auto'}}>
+        {clothList && clothList.map((obj) => (
+          <div style={{display:'inline-block', margin:'5px 7px'}}>
+            <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
+            category={obj.category} subcategory={obj.subcategory} 
+            cid={obj.cid} favorite={obj.favorite}/>
+          </div>
+        ))}
+      </div>
     </div>
     <BottomMenu />
     </>

@@ -7,31 +7,29 @@ import axios from 'axios';
 
 const ChangeCloth = () => {
   const naviagte = useNavigate();
+  const goBack = () => naviagte(-1);
+
   const location = useLocation();
 
-  const [name, setName] = useState();
-  const [category, setCategoty] = useState([]);
-  const [subcategory, setSubcategory] = useState();
-  const [filter, setFilter] = useState([]);
-  const [url, setUrl] = useState();
+  const [newName, setNewName] = useState();
+  const [newCategory, setNewCategory] = useState();
+  const [newSubCategory, setNewSubCategory] = useState();
+  
 
-  useEffect(() => {
-    setName(location.state.name);
-    setCategoty(location.state.category);
-    setSubcategory(location.state.subcategory);
-    setFilter(location.state.filter);
-    setUrl(location.state.url);
-  },[]);
+  const url = location.state.url;
+  const name = location.state.name;
+  const category = location.state.category;
+  const subcategory = location.state.subcategory;
+  const filter = location.state.filter;
+  const favorite = location.state.favorite;
 
-  const goBack = () => {
-    naviagte(-1);
-  }
+  
   const changeClothInfo = () => {
     const cloth = axios.create({
       baseURL: 'http://localhost:8000/'
     })
     cloth.post('/clothes/update', null,{params: {
-        name : name,
+        name : name, favorite:favorite,
       }}).then(function (response){
       console.log(response.data);
       alert('수정 완료')
@@ -48,7 +46,7 @@ const ChangeCloth = () => {
 
     <hr style={{border:'none'}}></hr>
     <label>이름</label>
-    <Input type={'text'} placeholder={'이름을 입력해주세요'} 
+    <Input type={'text'} placeholder={'새 이름을 입력해주세요'} 
     margin={'20px auto'}/>
 
     <hr style={{border:'none'}}></hr>
@@ -58,7 +56,7 @@ const ChangeCloth = () => {
     <p>{`계절 : ${filter}`}</p>
 
     <hr style={{border:'none'}}></hr>
-    <Button value={'수정하기'} width={'70px'} 
+    <Button value={'변경내용 저장하기'} width={'100px'} 
     height={'30px'} margin={'0 5px 0 0'}
     onClick={changeClothInfo}/>
 

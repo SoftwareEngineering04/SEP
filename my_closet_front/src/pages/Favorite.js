@@ -34,7 +34,7 @@ const Favorite = () => {
     {clothList && clothList.map((obj) => (
       <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
        category={obj.category} subcategory={obj.subcategory} 
-       cid={obj.cid} />
+       cid={obj.cid} favorite={obj.favorite}/>
       ))}
     </div>
     <BottomMenu />

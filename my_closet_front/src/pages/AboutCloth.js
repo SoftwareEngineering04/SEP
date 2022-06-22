@@ -1,11 +1,11 @@
 import Header from "../components/Header";
 import Button from "../components/Button";
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {useLocation, useNavigate} from 'react-router-dom';
 import DeleteCloth from "../components/DeleteCloth";
 import axios from "axios";
 import { useState, useEffect } from "react";
 
-const AboutCloth = (props) => {
+const AboutCloth = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -43,13 +43,21 @@ const AboutCloth = (props) => {
     <p>이름 | {clothInfo.name}</p>
     {/*<p>즐겨찾기 | {props.isFavorite ? '★' : '☆'}</p>*/}
     <p>카테고리 | {clothInfo.category} - {clothInfo.subcategory}</p>
-    <p>계절 | {clothInfo.filter.toString()}</p>
-    <p>즐겨찾기 | </p>
+    <p>계절 | {clothInfo.filter}</p>
+    <p>즐겨찾기 | {clothInfo.favorite? '★' : '☆'}</p>
 
     <Button value={'확인'} width={'200px'} height={'25px'}
     onClick={() => navigate(-1)}/>
-
     <hr style={{border:'none'}}></hr>
+
+    <Button value={'수정하기 '} width={'200px'} height={'25px'}
+    onClick={() => navigate('/changecloth', {
+      state: {url:clothInfo.photo, name:clothInfo.name, 
+        category:clothInfo.category,
+        subcategory:clothInfo.subcategory,
+        filter:clothInfo.filter,
+        favorite:clothInfo.favorite,
+    }})} />
 
     <DeleteCloth value={'삭제하기'} cid={cid}/>
     </div>

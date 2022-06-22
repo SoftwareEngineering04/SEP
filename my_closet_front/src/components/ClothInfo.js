@@ -12,20 +12,22 @@ const ClothInfo = (props) => {
         category:props.category,
         subcategory:props.subcategory,
         filter:props.filter,
-        cid : props.cid
+        cid : props.cid,
+        favorite: props.favorite,
       }
     })}
 
   return(
-    <div style={{border : '1px solid black', 
-    width:'300px', height:'300px'}}>
-    <img alt={'이미지'} src={url}
-    style={{width:'100px', height:'100px'}} /> 
-    <p>이름 : {props.name}</p>
-    <p>카테고리 : {props.category} - {props.subcategory}</p>
-    
-    <Button value={'상세보기'} width={'70px'} height={'20px'}
-    onClick={moveAbout}/>
+    <div style={{display:'block', margin:'0px auto' ,
+    textAlign:'center', padding:'5px'}}>
+      <img alt={'이미지'} src={url}
+      style={{width:'100px', height:'100px',
+      border:'1px solid black'}} /> 
+      <p>이름 | {props.name}</p>
+      <p>카테고리 | {props.category} - {props.subcategory}</p>
+      
+      <Button value={'상세보기'} width={'70px'} height={'25px'}
+      onClick={moveAbout}/>
     
     </div>
   );
