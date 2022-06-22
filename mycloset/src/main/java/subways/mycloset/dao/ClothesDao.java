@@ -25,6 +25,8 @@ public interface ClothesDao {
     List<Clothes> getClothesByName(String name, String id);
     //    List<Clothes> getClothesByCategory(@Param("category") String category, @Param("subcategory") String subcategory, @Param("id") String id);
     List<Clothes> getClothesByCategory(Filter filter);
+
+    List<Clothes> getClothesByCtegoryAndFilter(Filter fillter);
     List<Clothes> getClothesBySeason();
     List<Clothes> getFavorites(String id);
 

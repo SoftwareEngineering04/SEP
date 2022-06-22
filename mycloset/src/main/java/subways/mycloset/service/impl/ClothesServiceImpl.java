@@ -48,7 +48,7 @@ public class ClothesServiceImpl implements ClothesService {
 
         File destinationFile;
         String destinationFileName;
-        String fileUrl = "E:\\SEP15\\my_closet_front\\public\\images\\";
+        String fileUrl = "C:\\github\\SEP\\my_closet_front\\public\\images\\";
 
         do{
             destinationFileName = RandomStringUtils.randomAlphanumeric(32 ) + "." + sourceFileNameExtension;
@@ -176,6 +176,7 @@ public class ClothesServiceImpl implements ClothesService {
 
     public List<Clothes> getClothesByCategory(Clothes clothes){
         Filter filter = new Filter();
+        int check = 0;
         int i=0;
         String season ;
         //String[] a = clothes.getFilter();
@@ -183,12 +184,16 @@ public class ClothesServiceImpl implements ClothesService {
             season = (String) clothes.getFilter()[i];
             if (season.equals("봄")){
                 filter.setSpring(true);
+                check++;
             } else if (season.equals("여름")) {
                 filter.setSummer(true);
+                check++;
             } else if (season.equals("가을")) {
                 filter.setFall(true);
+                check++;
             }else if (season.equals("겨울")) {
                 filter.setWinter(true);
+                check++;
             }
 
             // System.out.println("(String) clothes.getFilter()[0] = " + (String) clothes.getFilter()[i]);
@@ -199,11 +204,15 @@ public class ClothesServiceImpl implements ClothesService {
         filter.setId(clothes.getId());
         System.out.println("filter = " + filter);
 
-        List<Clothes> lst = clothesDao.getClothesByCategory(filter);
-        System.out.println("lst = " + lst);
-        //filterDao.getFilter(clothes.getCId());
-        //clothes.setFilter(a);
-        return lst;
+        List<Clothes> list;
+        if(check==0){
+            list = clothesDao.getClothesByCategory(filter);
+            return list;
+        }
+        else {
+            list = clothesDao.getClothesByCtegoryAndFilter(filter);
+            return list;
+        }
     }
 
     public List<Clothes> getFavorites(String id){
