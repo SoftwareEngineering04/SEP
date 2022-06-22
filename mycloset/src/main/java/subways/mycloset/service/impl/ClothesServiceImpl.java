@@ -175,6 +175,7 @@ public class ClothesServiceImpl implements ClothesService {
 //    }
 
     public List<Clothes> getClothesByCategory(Clothes clothes){
+        System.out.println("clothes.c" + clothes.getSubcategory());
         Filter filter = new Filter();
         int check = 0;
         int i=0;
@@ -206,8 +207,10 @@ public class ClothesServiceImpl implements ClothesService {
 
         List<Clothes> list;
         if(check==0){
-            if(filter.getSubCategory().equals("전체")){
+            if(filter.getSubCategory().isEmpty()){
+                System.out.println("test");
                 list = clothesDao.getClothesByCategoryAll(filter);
+                System.out.println("list" + list);
                 return list;
             }
             else{
@@ -216,8 +219,9 @@ public class ClothesServiceImpl implements ClothesService {
             }
         }
         else {
-            if(filter.getSubCategory().equals("전체")){
+            if(filter.getSubCategory().isEmpty()){
                 list = clothesDao.getClothesByCategoryAllAndFilter(filter);
+                System.out.println(list);
                 return list;
             }
             else{
