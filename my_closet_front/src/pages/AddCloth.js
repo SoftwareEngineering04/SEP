@@ -79,7 +79,7 @@ const AddColth = () => {
     {/*이름 입력*/}
     <Input type="text" placeholder={'이름을 입력해주세요(최대 8글자)'}
     display={'block'} margin={'8px auto'} onChange={handleName}
-    maxLength={'8'} width={'150px'}/>
+    maxLength={'8'} width={'250px'}/>
     
     {/*일단 태그와 연관코디는 신경쓰지 말자*/}
 

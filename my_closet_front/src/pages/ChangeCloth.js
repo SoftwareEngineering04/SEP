@@ -68,7 +68,7 @@ const ChangeCloth = () => {
     <hr style={{border:'none'}}></hr>
     <label>{'이름  '}</label>
     <Input type={'text'} placeholder={'새 이름을 입력해주세요(최대 8글자)'} 
-    margin={'20px auto'} onChange={handleName} width={'150px'}
+    margin={'20px auto'} onChange={handleName} width={'250px'}
     maxLength={'8'}/>
 
     <div style={{display:'center', margin:'0px auto'}}>

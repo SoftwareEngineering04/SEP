@@ -62,7 +62,8 @@ const AboutCloth = () => {
         cid:clothInfo.cid,
     }})} />
 
-    <DeleteCloth value={'삭제하기'} cid={cid}/>
+    <DeleteCloth value={'삭제하기'} cid={cid} width={'200px'}
+    height={'25px'}/>
     </div>
     </>
   );
