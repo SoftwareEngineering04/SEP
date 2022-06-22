@@ -206,12 +206,24 @@ public class ClothesServiceImpl implements ClothesService {
 
         List<Clothes> list;
         if(check==0){
-            list = clothesDao.getClothesByCategory(filter);
-            return list;
+            if(filter.getSubCategory().equals("전체")){
+                list = clothesDao.getClothesByCategoryAll(filter);
+                return list;
+            }
+            else{
+                list = clothesDao.getClothesByCategory(filter);
+                return list;
+            }
         }
         else {
-            list = clothesDao.getClothesByCtegoryAndFilter(filter);
-            return list;
+            if(filter.getSubCategory().equals("전체")){
+                list = clothesDao.getClothesByCategoryAllAndFilter(filter);
+                return list;
+            }
+            else{
+                list = clothesDao.getClothesByCategoryAndFilter(filter);
+                return list;
+            }
         }
     }
 
