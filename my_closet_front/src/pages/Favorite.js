@@ -31,7 +31,7 @@ const Favorite = () => {
     <Header />
     <div style={{textAlign:'center'}}>
       <p>즐겨찾기 목록 : </p>
-      <div style={{width:'450px', textAlign:'center',
+      <div style={{width:'550px', textAlign:'center',
       margin:'5px auto 60px'}}>
         {clothList && clothList.map((obj) => (
           <div style={{display:'inline-block', margin:'5px 7px'}}>

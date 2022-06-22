@@ -3,10 +3,11 @@ import { forwardRef } from "react";
 const Input = forwardRef((props, ref) => {
   return (
     <input 
+    maxLength={'8'}
     onChange = {props.onChange}
     ref={ref}
     type={props.type}
-    placeholder={props.placeholder}
+    placeholder={props.placeholder ? props.placeholder : '이름은 최대 8글자'}
     disabled={props.disabled}
     value={props.value}
     readOnly={props.readOnly}

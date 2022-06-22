@@ -57,7 +57,7 @@ const ClothList = () => {
       <Button onClick={show} value={'검색'} width={'200px'} height={'30px'}/>
     </div>
         {/*옷 보여주자*/}
-      <div style={{width:'450px', textAlign:'center',
+      <div style={{width:'550px', textAlign:'center',
       margin:'5px auto 60px'}}>
         {clothList && clothList.map((obj) => (
           <div style={{display:'inline-block', margin:'5px 7px'}}>
