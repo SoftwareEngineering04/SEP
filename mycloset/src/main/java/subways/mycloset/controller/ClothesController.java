@@ -23,7 +23,7 @@ public class ClothesController {
     public int addClothes(HttpServletRequest req, @RequestParam(value = "img") MultipartFile file, Clothes clothes){ return clothesService.addClothes(req, file, clothes); }
     //    public int addClothes(Clothes clothes){ return clothesService.addClothes(clothes); }
     @RequestMapping(value="/update", method = {RequestMethod.GET, RequestMethod.POST})
-    public int updateClothes(Clothes clothes){ return clothesService.updateClothes(clothes); }
+    public int updateClothes(HttpServletRequest req, Clothes clothes){ return clothesService.updateClothes(req, clothes); }
     @RequestMapping(value="/delete", method = {RequestMethod.GET, RequestMethod.POST})
     public int deleteClothes(int cId){ return clothesService.deleteClothese(cId); }
 

@@ -8,9 +8,10 @@
         VALUES(#{sId},#{spring},#{summer}, #{fall}, #{winter})
     </insert>
 
-    <select id="findfile" parameterType="Integer" resultType="Files">
-        SELECT * FROM files where fId=#{fId};
-    </select>
+    <update id="updateFilter" parameterType="subways.mycloset.dto.Filter">
+        UPDATE filter SET spring=#{spring}, summer=#{summer}, fall=#{fall}, winter=#{winter}
+        where sId=#{sId};
+    </update>
 
     <select id="getFilter" parameterType="Integer" resultType="Filter">
         SELECT * FROM filter where sId=#{cId};

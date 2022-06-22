@@ -13,7 +13,7 @@
     </delete>
 
     <update id="updateClothes" parameterType="subways.mycloset.dto.Clothes">
-        UPDATE Clothes SET cId=#{cId}, name=#{name}, category=#{category}, subcategory=#{subcategory}, photo=#{photo}, isFavorite=#{isFavorite}
+        UPDATE clothes SET name=#{name}, category=#{category}, subcategory=#{subcategory}, photo=#{photo}, isFavorite=#{isFavorite}
         where cId=#{cId};
     </update>
 

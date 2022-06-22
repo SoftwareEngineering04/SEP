@@ -8,7 +8,7 @@ import subways.mycloset.dto.Filter;
 @Mapper
 public interface FilterDao {
     int addFilter(Filter filter);
-    int updateFilter(int cId);
+    int updateFilter(Filter filter);
     int deleteFilter(int cId);
     Filter getFilter(int cId);
 }

@@ -13,7 +13,7 @@ public interface ClothesService {
     int addClothes(HttpServletRequest req, MultipartFile file, Clothes clothes);
     //    int addClothes(Clothes clothes);
     int deleteClothese(int cId);
-    int updateClothes(Clothes clothes);
+    int updateClothes(HttpServletRequest req, Clothes clothes);
     Clothes getClothesBycId(int cId);
     List<Clothes> getClothesByName(String name, String id);
     //    List<Clothes> getClothesByCategory(Clothes clothes);

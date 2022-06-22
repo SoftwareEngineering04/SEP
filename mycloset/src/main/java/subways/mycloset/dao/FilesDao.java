@@ -10,6 +10,8 @@ public interface FilesDao {
 
     int fileUpload(Files files);
 
+    int updateFile(Files files);
+
     Files findfile(int fId);
 
 }

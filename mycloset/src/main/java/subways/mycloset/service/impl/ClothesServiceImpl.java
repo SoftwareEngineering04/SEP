@@ -134,8 +134,32 @@ public class ClothesServiceImpl implements ClothesService {
         return 0;
     }
 
-    public int updateClothes(Clothes clothes){
+    public int updateClothes(HttpServletRequest req, Clothes clothes){
+        Filter filter = new Filter();
+
+        filter.setSId(clothes.getCId());
+
+        int i=0;
+        String season ;
+        while (i<clothes.getFilter().length){
+            season = (String) clothes.getFilter()[i];
+            if (season.equals("봄")){
+                filter.setSpring(true);
+            } else if (season.equals("여름")) {
+                filter.setSummer(true);
+            } else if (season.equals("가을")) {
+                filter.setFall(true);
+            }else if (season.equals("겨울")) {
+                filter.setWinter(true);
+            }
+
+            // System.out.println("(String) clothes.getFilter()[0] = " + (String) clothes.getFilter()[i]);
+            i++;
+        }
+
         clothesDao.updateClothes(clothes);
+        filterDao.updateFilter(filter);
+
         return 0;
     }
 

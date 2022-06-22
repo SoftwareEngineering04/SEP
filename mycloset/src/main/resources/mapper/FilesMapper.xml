@@ -8,6 +8,11 @@
         VALUES(#{fId},#{cId},#{fileName}, #{fileOriName}, #{fileUrl})
     </insert>
 
+    <update id="updateFile" parameterType="subways.mycloset.dto.Files">
+        UPDATE files SET fileName=#{fileName}, fileOriName=#{fileOriName}, fileUrl=#{fileUrl}
+        where fId=#{fId};
+    </update>
+
     <select id="findfile" parameterType="Integer" resultType="Files">
         SELECT * FROM files where fId=#{fId};
     </select>
