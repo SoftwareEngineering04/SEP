@@ -38,14 +38,17 @@ const Search = () => {
     onClick={showClothes}/>
 
     </div>
-    {/*옷 보여주자*/}
-    {clothList && clothList.map((obj) => (
-      <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
-      category={obj.category} subcategory={obj.subcategory} 
-      cid={obj.cid} favorite={obj.favorite}/>
-      ))}
-    <div>
-    </div>
+    <div style={{width:'400px', textAlign:'center',
+      margin:'5px auto 60px'}}>
+        {clothList && clothList.map((obj) => (
+          <div style={{display:'inline-block', margin:'5px 7px'}}>
+            <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
+            category={obj.category} subcategory={obj.subcategory} 
+            cid={obj.cid} favorite={obj.favorite}/>
+          </div>
+        ))}
+      </div>
+
     <BottomMenu />
     </>
   );

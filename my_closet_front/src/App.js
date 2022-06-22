@@ -16,11 +16,13 @@ import TestImage from './pages/TestImage';
 import AboutCloth from './pages/AboutCloth';
 import ChangeCloth from './pages/ChangeCloth';
 import TestPage from './pages/TestPage';
+import ChangeTest from './pages/ChangeTest';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path='/changetest' element={<ChangeTest />} />
         <Route path='/printtest' element={<TestPage />} />
         <Route path='/changecloth' element={<ChangeCloth />} />
         <Route path='/aboutcloth' element={<AboutCloth />} />

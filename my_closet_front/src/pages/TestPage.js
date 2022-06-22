@@ -1,3 +1,4 @@
+import BottomMenu from "../components/BottomMenu";
 import Button from "../components/Button";
 import Header from "../components/Header";
 
@@ -25,7 +26,7 @@ const TestPage = () => {
   <>
   <Header />
   <div style={{border:'1px solid blue', width:'400px',
-              textAlign:'center', margin:'5px auto'}}>
+              textAlign:'center', margin:'5px auto 60px'}}>
     {obj && obj.map((a) => (
       <div style={{
         border : '1px solid red',
@@ -44,6 +45,7 @@ const TestPage = () => {
       </div>
     ))}
   </div>
+  <BottomMenu />
   </>);
 }
 

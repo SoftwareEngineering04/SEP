@@ -31,11 +31,16 @@ const Favorite = () => {
     <Header />
     <div style={{textAlign:'center'}}>
       <p>즐겨찾기 목록 : </p>
-    {clothList && clothList.map((obj) => (
-      <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
-       category={obj.category} subcategory={obj.subcategory} 
-       cid={obj.cid} favorite={obj.favorite}/>
-      ))}
+      <div style={{width:'400px', textAlign:'center',
+      margin:'5px auto 60px'}}>
+        {clothList && clothList.map((obj) => (
+          <div style={{display:'inline-block', margin:'5px 7px'}}>
+            <ClothInfo key={obj.name} name={obj.name} photo={obj.photo}
+            category={obj.category} subcategory={obj.subcategory} 
+            cid={obj.cid} favorite={obj.favorite}/>
+          </div>
+        ))}
+      </div>
     </div>
     <BottomMenu />
     </>

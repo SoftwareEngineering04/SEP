@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import Header from "../components/Header";
 import Input from "../components/Input";
 import {useState} from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BottomMenu from "../components/BottomMenu";
 import SeasonButton from "../components/SeasonButton";
 import FavorateButton from "../components/FavorateButton";
@@ -11,6 +11,8 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const AddColth = () => {
+  const navigate = useNavigate();
+
   const userId = useSelector((state) => state.id)
 
   const [firstCategory, setFirstCategory] = useState('');
@@ -41,6 +43,7 @@ const AddColth = () => {
       }
       else {
       alert(`옷 등록 성공`);
+      navigate('/main')
     }
     }).catch(function (error){
       console.log(`옷 등록 에러 발생 : ${error}`);

@@ -57,6 +57,7 @@ const AboutCloth = () => {
         subcategory:clothInfo.subcategory,
         filter:clothInfo.filter,
         favorite:clothInfo.favorite,
+        cid:clothInfo.cid,
     }})} />
 
     <DeleteCloth value={'삭제하기'} cid={cid}/>
