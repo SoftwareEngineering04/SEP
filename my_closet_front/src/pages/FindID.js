@@ -23,7 +23,7 @@ const FindID = () => {
       name:name, email:email
     }}).then(function(response) {
       setId(response.data);
-      alert(`ID 조회 성공 : ${JSON.stringify(response.data)}`)
+      alert(`ID 조회에 성공하였습니다.`)
     }).catch(function(error) {
       alert(`에러 발생 : ${error}`);
     })

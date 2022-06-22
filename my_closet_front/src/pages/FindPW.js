@@ -23,7 +23,7 @@ const FindPW = () => {
       id : id, email : email
     }}).then(function(response) {
       setPw(response.data);
-      alert(`PW 조회 성공 : ${response.data}`)
+      alert(`비밀번호 조회에 성공하였습니다.`)
     }).catch(function(error) {
       alert(`에러 발생 : ${error}`);
     })

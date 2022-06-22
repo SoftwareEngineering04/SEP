@@ -39,10 +39,10 @@ const AddColth = () => {
         filter : season.toString(), favorite : favorite, id:userId
       }}).then(function (response){
       if(response.data===-1) {
-        alert(`옷 등록 실패`);
+        alert(`옷 등록에 실패하였습니다`);
       }
       else {
-      alert(`옷 등록 성공`);
+      alert(`옷이 등록되었습니다`);
       navigate('/main')
     }
     }).catch(function (error){

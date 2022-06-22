@@ -17,10 +17,10 @@ const DeleteCloth = (props) => {
         cId:parseInt(props.cid),
       }}).then(function (response){
       if(response===-1) {
-        alert('옷 삭제 실패...');
+        alert('의류 삭제에 실패하였습니다');
       }
       else {
-     alert('옷 삭제 성공!')
+     alert('의류가 삭제되었습니다.')
     }
     }).catch(function (error){
       alert(`에러 발생 : ${error}`);

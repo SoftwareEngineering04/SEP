@@ -44,7 +44,7 @@ const ChangeCloth = () => {
         cId : cid
       }}).then(function (response){
       console.log(response.data);
-      alert('수정 완료')
+      alert('옷 수정이 완료되었습니다')
     }).catch(function (error){
       console.log(`에러 발생 : ${error}`);
     })
@@ -53,8 +53,15 @@ const ChangeCloth = () => {
     <>
     <Header />
 
-    <div style={{textAlign:'center'}}>
-    <img alt='img' src={navUrl} />
+    <div style={{textAlign:'center', display:'block',
+    margin:'0px auto'}}>
+
+    <p>의류 수정하기</p>
+
+    <img alt={'의류 미이지'} src={navUrl} 
+    style={{width:'150px', height:'150px'}}/>
+
+    <FavorateButton setFavorite={setFavorite}/>
 
     <hr style={{border:'none'}}></hr>
     <label>이름</label>
@@ -67,15 +74,11 @@ const ChangeCloth = () => {
     <SeasonButton width={'70px'} height={'30px'} margin={'5px auto'}
     season={season} setSeason={setSeason}/>
 
-    <FavorateButton setFavorite={setFavorite}/>
-    
-
     <hr style={{border:'none'}}></hr>
     <Button value={'변경내용 저장하기'} width={'100px'} 
     height={'30px'} margin={'0 5px 0 0'}
     onClick={changeClothInfo}/>
 
-    
     <Button value={'취소'} width={'50px'} height={'30px'}
     onClick={goBack}/>
     </div>

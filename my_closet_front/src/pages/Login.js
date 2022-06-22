@@ -31,9 +31,6 @@ const Login = () => {
       }
       else {
       setIsLogin('');
-      alert(`로그인 성공, 경로 : ${isLogin}
-      id : ${response.data.id}, pw : ${response.data.password}
-      name : ${response.data.name}, email : ${response.data.email}`);
 
       dispatch({type : 'login', loginId : response.data.id,
       loginPw : response.data.password, loginName : response.data.name,

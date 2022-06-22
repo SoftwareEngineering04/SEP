@@ -34,13 +34,13 @@ const ChangeInfo = () => {
        id : userId, password: newPw, name : newName, email : newEmail,
       }}).then(function (response){
       if(response.data.id === undefined || response.data.password === undefined) {
-        alert(`전송 실패`);
+        alert(`사용자 정보 수정이 실패하였습니다.`);
       }
       else {
-      alert(`전송 성공`);
+      alert(`사용자 정보 수정이 완료되었습니다.`);
     }
     }).catch(function (error){
-      console.log(`에러 발생`);
+      console.log(`에러 발생 : ${error}`);
     })
   }
 

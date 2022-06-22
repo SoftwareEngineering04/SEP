@@ -40,7 +40,7 @@ const Join = () => {
           alert('회원가입 실패');
         }
         else {
-        alert(`회원가입 성공`)
+        alert(`회원가입에 성공하였습니다.`)
         setIsJoin('');
       }
       }).catch(function (error){
